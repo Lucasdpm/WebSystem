@@ -1,0 +1,22 @@
+{
+    "users": [
+        {
+            "name": "user",
+            "email": "user@user.com.br",
+            "password": "user",
+            "access": "Access.user"
+        },
+        {
+            "name": "mod",
+            "email": "mod@mod.com.br",
+            "password": "mod",
+            "access": "Access.mod"
+        },
+        {
+            "name": "admin",
+            "email": "admin@admin.com.br",
+            "password": "admin",
+            "access": "Access.admin"
+        }
+    ]
+}
