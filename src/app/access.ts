@@ -1,4 +1,4 @@
-enum Access {
+export enum Access {
     user,
     mod,
     admin
