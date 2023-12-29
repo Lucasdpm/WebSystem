@@ -1,4 +1,18 @@
+html, body {
+    top: 0px;
+    margin: 0px;
+    height: 100%;
+}
 body {
     height: 100%;
     width: 100%;
+    margin: 0px;
+    background-color: #F3EAC0;
+}
+app-root {
+    display: flexbox;
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    top: 0px;
 }
