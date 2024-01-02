@@ -19,6 +19,7 @@ export class RegisterComponent implements OnInit{
       email: "",
       password: "",
       cpf: "",
+      access: <Access>Access.user
     })
   }
 
@@ -50,7 +51,6 @@ export class RegisterComponent implements OnInit{
   }
 
   registerUser(): boolean {
-    console.log("RegisterUser(): " + <User>this.formGroup.value)
     this.userService.addUser(this.formGroup.value)
     return true;
   }

@@ -4,19 +4,22 @@
             "name": "user",
             "email": "user@user.com.br",
             "password": "user",
-            "access": "Access.user"
+            "cpf": "100.100.100-10",
+            "access": "0"
         },
         {
             "name": "mod",
             "email": "mod@mod.com.br",
             "password": "mod",
-            "access": "Access.mod"
+            "cpf": "200.200.200-20",
+            "access": "1"
         },
         {
             "name": "admin",
             "email": "admin@admin.com.br",
             "password": "admin",
-            "access": "Access.admin"
+            "cpf": "300.300.300-30",
+            "access": "2"
         }
     ]
 }

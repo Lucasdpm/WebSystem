@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { User } from './user';
-import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { Access } from './access';
+import { Observable, catchError } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,11 @@ export class UserService {
     return this.httpClient.get(this.url)
   }
 
-  addUser(newUser: User) {
-    this.httpClient.post(this.url, newUser)
+  addUser(newUser: User){
+    this.httpClient.post<User>(this.url, newUser, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    })
   }
 }
