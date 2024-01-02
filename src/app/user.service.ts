@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from './user';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -7,9 +9,13 @@ import { User } from './user';
 export class UserService {
 
   url = 'http://localhost:3000/users'
-  
-  async getAllUsers(): Promise<User[]> {
-    const data = await fetch(this.url)
-    return await data.json() ?? []
+  constructor (private httpClient: HttpClient) { }
+
+  getAllUsers(): Observable<any> {
+    return this.httpClient.get(this.url)
+  }
+
+  addUser(newUser: User) {
+    this.httpClient.post(this.url, newUser)
   }
 }
