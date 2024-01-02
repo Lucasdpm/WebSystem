@@ -1,0 +1,9 @@
+<div class="homeBody">
+    <h1 class="text">Bem vindo, {{ userName }}</h1>
+    <h2 class="text">Número de usuarios cadastrados: {{ numUsers }}</h2>
+    <h2 class="text">Número de produtos cadastrados: {{ numProducts }}</h2>
+    <div class="buttons">
+        <button (click)="userManagement()">Ver usuários</button>
+        <button (click)="productManagement()">Ver produtos</button>
+    </div>
+</div>

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, Output , EventEmitter} from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from '../user.service';
 import { OnInit } from '@angular/core';
@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit{
     })
   }
   
-  logedUser: User = <User>{}
+  @Output() userNameEvent = new EventEmitter<string>()
 
   ngOnInit(): void {
     this.userService.getAllUsers().subscribe(data => {
@@ -39,7 +39,14 @@ export class LoginComponent implements OnInit{
         if (this.userList[i].password	=== user.password) {
 
           localStorage.setItem('user', JSON.stringify(this.userList[i]))
-          this.router.navigate(['../home'], { relativeTo: this.route})
+          
+          // -------------------------------------------------------------------------------------------------------
+          let user: any = localStorage.getItem('user')
+          user = <User>JSON.parse(user)
+          this.userNameEvent.emit(user.name)
+          // -------------------------------------------------------------------------------------------------------
+
+          this.router.navigate(['/home'])
           return true
         }
       }
@@ -47,3 +54,4 @@ export class LoginComponent implements OnInit{
     return false
   }
 }
+
