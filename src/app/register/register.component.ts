@@ -23,8 +23,6 @@ export class RegisterComponent implements OnInit{
     })
   }
 
-  emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-  passwordRegex = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,}[#.?!@$%^&*-]$/
 
   ngOnInit(): void {
     this.userService.getAllUsers().subscribe(data => {
@@ -32,26 +30,37 @@ export class RegisterComponent implements OnInit{
     })
   }
 
+  //TODO
   verifyEmail(): boolean{
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
     let input: string = this.formGroup.value.email
-    let found: boolean = this.emailRegex.test(input)
+    let found: boolean = emailRegex.test(input)
     if (!found && input.length) {
       return true
     }
     return false
   }
 
+  //TODO
   verifyPassword(): boolean{
     let input: string = this.formGroup.value.password
-    let found: boolean = this.passwordRegex.test(input)
-    if (!found && input.length) {
-      return true
-    }
-    return false
+    console.log(input.length)
+    if (input.length < 8 && input.length) return true
+    console.log("teste")
+    let hasLetter = /[a-zA-Z]/.test(input)
+    let hasNumber = /\d/.test(input)
+    let hasNonalphas = /[!@#$%*,.;:/?-_]/.test(input)
+
+    if (hasLetter && hasNumber && hasNonalphas && input.length || !input.length) return false
+    return true
   }
 
   registerUser(): boolean {
-    this.userService.addUser(this.formGroup.value)
+    this.userService.addUser(this.formGroup.value).subscribe(user => {
+      this.userList.push(user)
+      console.log(user)
+    })
     return true;
   }
 }

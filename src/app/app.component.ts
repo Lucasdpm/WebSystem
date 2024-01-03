@@ -9,10 +9,4 @@ import { User } from './user';
 })
 export class AppComponent {
   title = 'ProjetoWeb';
-  username: string = ""
-
-  userName($event: ($event: any) => void) {
-    this.userName = $event
-    console.log("teste" + this.userName)
-  }
 }

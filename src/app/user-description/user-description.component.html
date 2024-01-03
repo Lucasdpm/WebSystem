@@ -1,0 +1,25 @@
+<div class="loginBody">
+    <form [formGroup]="formGroup" (ngSubmit)="submit()">
+        <div class="container">
+            <h1 class="title">Formulário do usuário</h1>
+            <div class="name">
+                <label class="elements" for="name">Nome</label>
+                <input class="elements" type="text" formControlName="name">
+            </div>
+            <div class="email">
+                <label class="elements" for="email">E-mail</label>
+                <input class="elements" type="text" formControlName="email">
+            </div>
+            <div class="cpf">
+                <label class="elements" for="cpf">CPF</label>
+                <input class="elements" type="text" formControlName="cpf">
+            </div>
+            <div class="access">
+                <label class="elements" for="access">Acesso</label>
+                <input class="elements" type="text" formControlName="access">
+            </div>
+            <button class="submit">Enviar</button>
+            <button class="delete" (click)="delete()">Deletar</button>
+        </div>
+    </form>
+</div>

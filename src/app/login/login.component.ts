@@ -22,8 +22,6 @@ export class LoginComponent implements OnInit{
       password: "admin"
     })
   }
-  
-  @Output() userNameEvent = new EventEmitter<string>()
 
   ngOnInit(): void {
     this.userService.getAllUsers().subscribe(data => {
@@ -39,13 +37,7 @@ export class LoginComponent implements OnInit{
         if (this.userList[i].password	=== user.password) {
 
           localStorage.setItem('user', JSON.stringify(this.userList[i]))
-          
-          // -------------------------------------------------------------------------------------------------------
-          let user: any = localStorage.getItem('user')
-          user = <User>JSON.parse(user)
-          this.userNameEvent.emit(user.name)
-          // -------------------------------------------------------------------------------------------------------
-
+          this.userService.setUserName(this.userList[i].name)
           this.router.navigate(['/home'])
           return true
         }

@@ -10,17 +10,45 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class UserService {
 
   url = 'http://localhost:3000/users'
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  }
   constructor (private httpClient: HttpClient) { }
+
+  logedUserName: string = ''
 
   getAllUsers(): Observable<any> {
     return this.httpClient.get(this.url)
   }
 
-  addUser(newUser: User){
-    this.httpClient.post<User>(this.url, newUser, {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    })
+  getUserById(id: number): User{
+    let getUser: User = <User>{}
+    this.httpClient.get<User>(this.url).subscribe((user => {
+      if (user.id === id) getUser = user
+      //console.log(user)
+      //console.log(user.id + " === " + id + "  " + (user.id === id))
+    }))
+    
+    return getUser
+  }
+
+  addUser(newUser: User): Observable<any>{
+    return this.httpClient.post<User>(this.url, newUser, this.httpOptions)
+  }
+
+  deleteUser(id: number): Observable<any> {
+    const url = `${this.url}/${id}`
+    console.log(url)
+    return this.httpClient.delete(url, this.httpOptions)
+  }
+
+  setUserName(name: string) {
+    this.logedUserName = name
+  }
+
+  getUserName(): string {
+    return this.logedUserName
   }
 }
