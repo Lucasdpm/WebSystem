@@ -4,12 +4,21 @@
             <h1 class="title">Login</h1>
             <div class="email">
                 <label class="elements" for="email">E-mail</label>
-                <input class="elements" type="text" formControlName="email">
+                <input class="elements" type="text" formControlName="email" >
+                <span class="validation" *ngIf="formGroup.get('email')?.invalid && formGroup.get('email')?.touched">
+                    Campo obrigatório
+                </span>
             </div>
             <div class="password">
                 <label class="elements" for="password">Senha</label>
                 <input class="elements" type="text" formControlName="password">
+                <span class="validation" *ngIf="formGroup.get('password')?.invalid && formGroup.get('password')?.touched">
+                    Campo obrigatório
+                </span>
             </div>
+            <span class="validation" *ngIf="isInvalid">
+                E-mail ou senha incorretos
+            </span>
             <button class="submit">Logar</button>
             <label for="placeholder">Não possui conta? </label><a href="/register">Registrar</a>
         </div>

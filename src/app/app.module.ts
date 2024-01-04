@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
+import { NgxMaskDirective, provideNgxMask , NgxMaskPipe} from 'ngx-mask';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -14,6 +15,7 @@ import { ProductManagementComponent } from './product-management/product-managem
 import { HeaderComponent } from './template/header/header.component';
 import { FooterComponent } from './template/footer/footer.component';
 import { UserDescriptionComponent } from './user-description/user-description.component';
+
 
 @NgModule({
   declarations: [
@@ -32,10 +34,12 @@ import { UserDescriptionComponent } from './user-description/user-description.co
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    NgxMaskDirective, NgxMaskPipe
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideNgxMask()
   ],
   bootstrap: [AppComponent]
 })

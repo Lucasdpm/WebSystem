@@ -1,5 +1,6 @@
 <div class="registerBody">
     <form [formGroup]="formGroup" (ngSubmit)="registerUser()">
+        <script> console.log(this.formGroup.controls['name'].valid); console.log(this.formGroup.valid)</script>
         <div class="container">
             <h1 class="title">Registrar</h1>
             <div class="name">
@@ -15,7 +16,7 @@
                 <span class="validation" *ngIf="formGroup.get('email')?.invalid && formGroup.get('email')?.touched">
                     Campo obrigatório
                 </span>
-                <span class="validation" *ngIf="verifyEmail()">
+                <span class="validation" *ngIf="invalidEmail()">
                     Email inválido
                 </span>
             </div>
@@ -25,18 +26,22 @@
                 <span class="validation" *ngIf="formGroup.get('password')?.invalid && formGroup.get('password')?.touched">
                     Campo obrigatório
                 </span>
-                <span class="validation" *ngIf="verifyPassword()">
-                    Senha inválida: min. 8 caracteres e pelo menos um caractere especial.
+                <span class="validation" *ngIf="invalidPassword()">
+                    Senha inválida: min. 8 caracteres, letras, números e caracteres especiais
                 </span>
             </div>
             <div class="cpf">
                 <label class="cpf" for="cpf">CPF</label>
-                <input class="cpf" type="text" required formControlName="cpf">
+                <input class="cpf" type="text" required formControlName="cpf" [mask]="'000.000.000-00'" >
+                <!-- [mask]="'000.000.000-00'" -->
+                <!-- <span>{{formGroup.controls.cpf.value | mask: '(000) 000-0000'}}</span> -->
+
+                
                 <span class="validation" *ngIf="formGroup.get('cpf')?.invalid && formGroup.get('cpf')?.touched">
                     Campo obrigatório
                 </span>
             </div>
-            <button class="submit">Registrar</button>
+            <button class="submit" [disabled]="!formGroup.valid || invalidEmail() || invalidPassword()">Registrar</button>
             <label for="placeholder">Já possui conta? </label><a href="/login">Logar</a>
         </div>
     </form>

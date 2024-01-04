@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { User } from './user';
-import { Access } from './access';
-import { Observable, catchError } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { User } from './user';
+import { LocalStorageService } from './local-storage.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -15,23 +16,28 @@ export class UserService {
       'Content-Type': 'application/json'
     })
   }
-  constructor (private httpClient: HttpClient) { }
 
-  logedUserName: string = ''
+  user = new BehaviorSubject<User>(<User>{});
+
+  constructor (private httpClient: HttpClient, private localStorageService: LocalStorageService) { 
+    this.userIslogged()
+  }
+
+  userIslogged() {
+    // verificar no localstoreage
+    if(this.localStorageService.get('user')) {
+
+    }
+    // setar para memoria (user.setUser())
+  }
 
   getAllUsers(): Observable<any> {
     return this.httpClient.get(this.url)
   }
 
-  getUserById(id: number): User{
-    let getUser: User = <User>{}
-    this.httpClient.get<User>(this.url).subscribe((user => {
-      if (user.id === id) getUser = user
-      //console.log(user)
-      //console.log(user.id + " === " + id + "  " + (user.id === id))
-    }))
-    
-    return getUser
+  getUserById(id: number): Observable<User>{
+    const url = `${this.url}/${id}`
+    return this.httpClient.get<User>(url)
   }
 
   addUser(newUser: User): Observable<any>{
@@ -40,15 +46,19 @@ export class UserService {
 
   deleteUser(id: number): Observable<any> {
     const url = `${this.url}/${id}`
-    console.log(url)
     return this.httpClient.delete(url, this.httpOptions)
   }
 
-  setUserName(name: string) {
-    this.logedUserName = name
+  updateUser(id: number, updateUser: User): Observable<any> {
+    const url = `${this.url}/${id}`
+    return this.httpClient.put(url, updateUser, this.httpOptions)
   }
 
-  getUserName(): string {
-    return this.logedUserName
+  setUser(user: User) {
+    this.user.next(user);
+  }
+
+  getUser(): User {
+    return this.user.value;
   }
 }

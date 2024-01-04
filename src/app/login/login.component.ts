@@ -23,27 +23,30 @@ export class LoginComponent implements OnInit{
     })
   }
 
+  isInvalid: boolean = false
+
   ngOnInit(): void {
     this.userService.getAllUsers().subscribe(data => {
       this.userList = data
     })
   }
 
-  logIn(): boolean {
+  async logIn() {
     let user: User = <User>this.formGroup.value 
 
     for (let i = 0; i < this.userList.length; i++) {
-      if (this.userList[i].email === user.email) {
-        if (this.userList[i].password	=== user.password) {
+      if (this.userList[i].email === user.email && this.userList[i].password	=== user.password) {
 
-          localStorage.setItem('user', JSON.stringify(this.userList[i]))
-          this.userService.setUserName(this.userList[i].name)
-          this.router.navigate(['/home'])
-          return true
-        }
+        localStorage.setItem('user', JSON.stringify(this.userList[i]))
+        this.userService.setUser(this.userList[i])
+
+        this.router.navigate(['/home'])
+      
+        this.isInvalid = false 
       }
     }
-    return false
+
+    this.isInvalid = true
   }
 }
 

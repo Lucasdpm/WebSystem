@@ -23,30 +23,6 @@
       "password": "admin",
       "cpf": "200.200.200-20",
       "access": "2"
-    },
-    {
-      "name": "teste",
-      "email": "teste@teste.com",
-      "password": "testes13#12",
-      "cpf": "532523523535235",
-      "access": 0,
-      "id": 10
-    },
-    {
-      "name": "teste",
-      "email": "teste",
-      "password": "teste",
-      "cpf": "teste",
-      "access": 0,
-      "id": 11
-    },
-    {
-      "name": "teste2",
-      "email": "teste2",
-      "password": "teste2",
-      "cpf": "teste2",
-      "access": 0,
-      "id": 12
     }
   ]
 }

@@ -33,27 +33,29 @@ export class UserDescriptionComponent implements OnInit{
   }
 
   formUserDetails() {
-    let userDetail: User = this.userService.getUserById(this.userId)
+    let userDetail: User = <User>{}
+    this.userService.getUserById(this.userId).subscribe(user => {
 
-
-    console.log(this.userId)
-    console.log(userDetail)
-
-
-    this.formGroup = this.formBuilder.group({
-      name: userDetail.name,
-      email: userDetail.email,
-      cpf: userDetail.cpf,
-      access: userDetail.access
+      this.formGroup = this.formBuilder.group({
+        name: user.name,
+        email: user.email,
+        cpf: user.cpf,
+        access: user.access
+      })
     })
   }
 
-
   submit() {
-    
+    console.log("submited")
+    this.userService.updateUser(this.userId, this.formGroup.value).subscribe(user => {
+      this.userList[this.userId] = user
+      console.log( this.userList[this.userId])
+    })
+    this.router.navigate(['/userManagement'])
   }
 
   delete() {
     this.userService.deleteUser(this.userId).subscribe()
+    this.router.navigate(['/userManagement'])
   }
 }
