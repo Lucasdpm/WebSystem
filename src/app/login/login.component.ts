@@ -33,12 +33,12 @@ export class LoginComponent implements OnInit{
 
   async logIn() {
     let user: User = <User>this.formGroup.value 
-
+    
     for (let i = 0; i < this.userList.length; i++) {
       if (this.userList[i].email === user.email && this.userList[i].password	=== user.password) {
-
+        
         localStorage.setItem('user', JSON.stringify(this.userList[i]))
-        this.userService.setUser(this.userList[i])
+        this.userService.loggedUser()
 
         this.router.navigate(['/home'])
       

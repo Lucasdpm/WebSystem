@@ -15,6 +15,8 @@ import { ProductManagementComponent } from './product-management/product-managem
 import { HeaderComponent } from './template/header/header.component';
 import { FooterComponent } from './template/footer/footer.component';
 import { UserDescriptionComponent } from './user-description/user-description.component';
+import { LocalStorageService } from './local-storage.service';
+import { UserService } from './user.service';
 
 
 @NgModule({
@@ -39,7 +41,9 @@ import { UserDescriptionComponent } from './user-description/user-description.co
   ],
   providers: [
     provideClientHydration(),
-    provideNgxMask()
+    provideNgxMask(),
+    LocalStorageService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,27 +1,21 @@
 import { Injectable } from '@angular/core';
+import { User } from './user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LocalStorageService {
   
-  private storage: Storage;
-  constructor() {
-      this.storage = <Storage>{};
+
+  set (key: string, value: any) {
+    localStorage.setItem(key, JSON.stringify(value));
   }
 
-  set(key: string, value: any): boolean {
-      if (this.storage) {
-          this.storage.setItem(key, JSON.stringify(value));
-          return true;
-      }
-      return false;
+  get (key: string): User {
+    return <User>JSON.parse(<string>localStorage.getItem(key))
   }
 
-  get(key: string): any {
-      if (this.storage) {
-          return JSON.parse(this.storage.getItem(key) as string);
-      }
-      return null;
+  clear() {
+    localStorage.clear()
   }
 }

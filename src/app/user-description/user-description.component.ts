@@ -46,10 +46,8 @@ export class UserDescriptionComponent implements OnInit{
   }
 
   submit() {
-    console.log("submited")
     this.userService.updateUser(this.userId, this.formGroup.value).subscribe(user => {
       this.userList[this.userId] = user
-      console.log( this.userList[this.userId])
     })
     this.router.navigate(['/userManagement'])
   }

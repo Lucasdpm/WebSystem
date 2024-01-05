@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject} from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from './user';
 import { LocalStorageService } from './local-storage.service';
@@ -16,19 +16,19 @@ export class UserService {
       'Content-Type': 'application/json'
     })
   }
-
   user = new BehaviorSubject<User>(<User>{});
 
   constructor (private httpClient: HttpClient, private localStorageService: LocalStorageService) { 
-    this.userIslogged()
+    this.loggedUser()
   }
 
-  userIslogged() {
-    // verificar no localstoreage
-    if(this.localStorageService.get('user')) {
+  loggedUser() {
+    this.user.next(this.localStorageService.get(`user`))
+  }
 
-    }
-    // setar para memoria (user.setUser())
+  signOut() {
+    this.localStorageService.clear()
+    this.user.next(<User>{})
   }
 
   getAllUsers(): Observable<any> {
@@ -52,13 +52,5 @@ export class UserService {
   updateUser(id: number, updateUser: User): Observable<any> {
     const url = `${this.url}/${id}`
     return this.httpClient.put(url, updateUser, this.httpOptions)
-  }
-
-  setUser(user: User) {
-    this.user.next(user);
-  }
-
-  getUser(): User {
-    return this.user.value;
   }
 }
