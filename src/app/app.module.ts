@@ -17,6 +17,7 @@ import { FooterComponent } from './template/footer/footer.component';
 import { UserDescriptionComponent } from './user-description/user-description.component';
 import { LocalStorageService } from './local-storage.service';
 import { UserService } from './user.service';
+import { ProductDescriptionComponent } from './product-description/product-description.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { UserService } from './user.service';
     ProductManagementComponent,
     HeaderComponent,
     FooterComponent,
-    UserDescriptionComponent
+    UserDescriptionComponent,
+    ProductDescriptionComponent
   ],
   imports: [
     BrowserModule,

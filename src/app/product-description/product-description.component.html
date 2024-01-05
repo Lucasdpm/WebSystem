@@ -1,0 +1,29 @@
+<div class="loginBody">
+    <form [formGroup]="formGroup" (ngSubmit)="submit()">
+        <div class="container">
+            <h1 class="title">Formulário do usuário</h1>
+            <div class="name">
+                <label class="elements" for="name">Nome</label>
+                <input class="elements" type="text" formControlName="name">
+            </div>
+            <div class="price">
+                <label class="elements" for="price">Preço</label>
+                <input class="elements" type="text" formControlName="price">
+            </div>
+            <div class="weight">
+                <label class="elements" for="weight">Peso</label>
+                <input class="elements" type="text" formControlName="weight">
+            </div>
+            <div class="description">
+                <label class="elements" for="description">Descrição</label>
+                <input class="elements" type="text" formControlName="description">
+            </div>
+            <div class="storage">
+                <label class="elements" for="storage">Estoque</label>
+                <input class="elements" type="text" formControlName="storage">
+            </div>
+            <button class="submit">Enviar</button>
+            <button class="delete" (click)="delete()">Deletar</button>
+        </div>
+    </form>
+</div>

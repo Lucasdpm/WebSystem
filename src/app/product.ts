@@ -3,6 +3,6 @@ export interface Product {
     name: string
     price: number
     weight: number
-    desciption: string
+    description: string
     storage: number
 }

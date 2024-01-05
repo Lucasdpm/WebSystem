@@ -1,16 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService } from '../user.service';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserService } from '../user.service';
 import { User } from '../user';
-import { Access } from '../access';
+
 
 @Component({
   selector: 'app-user-description',
   templateUrl: './user-description.component.html',
   styleUrl: './user-description.component.css'
 })
-export class UserDescriptionComponent implements OnInit{
+export class UserDescriptionComponent {
 
   userList: User[] = []
   userId: number = Number.parseInt(this.router.url.slice(6))
@@ -23,9 +23,6 @@ export class UserDescriptionComponent implements OnInit{
       cpf: "",
       access: ""
     })
-  }
-  
-  ngOnInit(): void {
     this.userService.getAllUsers().subscribe(data => {
       this.userList = data
       this.formUserDetails()
