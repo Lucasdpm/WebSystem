@@ -3,6 +3,7 @@ import { BehaviorSubject, Observable} from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from './user';
 import { LocalStorageService } from './local-storage.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -15,10 +16,18 @@ export class UserService {
       'Content-Type': 'application/json'
     })
   }
-  user = new BehaviorSubject<User>(<User>{});
+  user = new BehaviorSubject<User>(<User>{})
 
-  constructor (private httpClient: HttpClient, private localStorageService: LocalStorageService) { 
+  constructor (private httpClient: HttpClient, private localStorageService: LocalStorageService, private router: Router) { 
     this.loggedUser()
+  }
+
+  checkLogIn(): boolean {
+    if (this.localStorageService.get(`user`) === null) {
+      this.router.navigate(['/login'])
+      return false
+    }
+    return true
   }
 
   loggedUser() {

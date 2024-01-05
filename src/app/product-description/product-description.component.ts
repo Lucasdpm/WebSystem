@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProductService } from '../product.service';
 import { Product } from '../product';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-product-description',
@@ -16,7 +17,7 @@ export class ProductDescriptionComponent {
   productId: number = Number.parseInt(this.router.url.slice(9))
   
   formGroup: FormGroup
-  constructor(private productService: ProductService, private formBuilder:FormBuilder, private router: Router) { 
+  constructor(private productService: ProductService, private formBuilder:FormBuilder, private router: Router, private userService: UserService) { 
     this.formGroup = this.formBuilder.group({
       name: "",
       price: 0,
@@ -24,6 +25,11 @@ export class ProductDescriptionComponent {
       description: "",
       storage: 0
     })
+
+    if (this.userService.checkLogIn()) {
+      return
+    }
+    
     this.productService.getAllProducts().subscribe(data => {
       this.productList = data
       this.formProductDetails()
@@ -45,7 +51,6 @@ export class ProductDescriptionComponent {
   }
 
   submit() {
-    console.log("submited")
     this.productService.updateProduct(this.productId, this.formGroup.value).subscribe(product => {
       this.productList[this.productId] = product
     })

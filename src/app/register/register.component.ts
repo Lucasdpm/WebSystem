@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { UserService } from '../user.service';
 import { User } from '../user';
 import { Access } from '../access';
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
-export class RegisterComponent implements OnInit{
+export class RegisterComponent {
 
   userList : User[] = []
   formGroup: FormGroup
@@ -21,9 +21,11 @@ export class RegisterComponent implements OnInit{
       cpf: '',
       access: <Access>Access.user
     })
-  }
+    
+    if (this.userService.checkLogIn()) {
+      return
+    }
 
-  ngOnInit(): void {
     this.userService.getAllUsers().subscribe(data => {
       this.userList = data
     })

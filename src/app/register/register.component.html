@@ -32,10 +32,6 @@
             <div class="cpf">
                 <label class="cpf" for="cpf">CPF</label>
                 <input class="cpf" type="text" required formControlName="cpf" [mask]="'000.000.000-00'" >
-                <!-- [mask]="'000.000.000-00'" -->
-                <!-- <span>{{formGroup.controls.cpf.value | mask: '(000) 000-0000'}}</span> -->
-
-                
                 <span class="validation" *ngIf="formGroup.get('cpf')?.invalid && formGroup.get('cpf')?.touched">
                     Campo obrigatório
                 </span>

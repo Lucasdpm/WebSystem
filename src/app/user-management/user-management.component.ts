@@ -13,6 +13,10 @@ export class UserManagementComponent {
   displayedColumns: string[] = ['name', 'email', 'cpf', "access"];
 
   constructor(private userService: UserService) {
+    if (this.userService.checkLogIn()) {
+      return
+    }
+    
     this.userService.getAllUsers().subscribe(data => {
       this.userList = data
     })

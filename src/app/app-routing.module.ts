@@ -8,6 +8,7 @@ import { ProductManagementComponent } from './product-management/product-managem
 import { UserManagementComponent } from './user-management/user-management.component';
 import { UserDescriptionComponent } from './user-description/user-description.component';
 import { ProductDescriptionComponent } from './product-description/product-description.component';
+import { ProductRegisterComponent } from './product-register/product-register.component';
 
 const routes: Routes = [
    { path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -17,7 +18,8 @@ const routes: Routes = [
    { path: 'userManagement', component: UserManagementComponent},
    { path: 'productManagement', component: ProductManagementComponent},
    { path: 'user/:id', pathMatch: 'full', component: UserDescriptionComponent},
-   { path: 'product/:id', pathMatch: 'full', component: ProductDescriptionComponent}
+   { path: 'product/:id', pathMatch: 'full', component: ProductDescriptionComponent},
+   { path: 'productRegister', component: ProductRegisterComponent}
 ];
 
 @NgModule({

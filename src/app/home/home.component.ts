@@ -19,11 +19,16 @@ export class HomeComponent {
   numProducts: number = 0
 
   constructor(private userService: UserService, private productService: ProductService) {
+    if (this.userService.checkLogIn()) {
+      return
+    }
+
     this.userService.getAllUsers().subscribe(data => {
       this.userList = data
       this.numUsers = this.userList.length
       this.userService.user.subscribe((value: User) => this.loggedUserName = value.name)
     })
+
     this.productService.getAllProducts().subscribe(data => {
       this.productList = data
       this.numProducts = this.productList.length

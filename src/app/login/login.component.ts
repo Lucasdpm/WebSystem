@@ -15,12 +15,15 @@ export class LoginComponent implements OnInit{
   
   userList : User[] = []
   formGroup: FormGroup
-  constructor(private userService: UserService, private formBuilder: FormBuilder, 
-    private router: Router, private route: ActivatedRoute) { 
+  constructor(private userService: UserService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute) { 
     this.formGroup = formBuilder.group(<User> {
       email: "admin@admin.com.br",
       password: "admin"
     })
+
+    if (this.userService.checkLogIn()) {
+      return
+    }
   }
 
   isInvalid: boolean = false

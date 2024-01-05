@@ -23,6 +23,11 @@ export class UserDescriptionComponent {
       cpf: "",
       access: ""
     })
+    
+    if (this.userService.checkLogIn()) {
+      return
+    }
+
     this.userService.getAllUsers().subscribe(data => {
       this.userList = data
       this.formUserDetails()

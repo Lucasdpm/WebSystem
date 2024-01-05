@@ -1,0 +1,40 @@
+<div class="registerBody">
+    <form [formGroup]="formGroup" (ngSubmit)="registerProduct()">
+        <div class="container">
+            <h1 class="title">Registrar</h1>
+            <div class="name">
+                <label class="name" for="name">Nome</label>
+                <input class="name" type="text" required formControlName="name">
+                <span class="validation" *ngIf="formGroup.get('name')?.invalid && formGroup.get('name')?.touched">
+                    Campo obrigatório
+                </span>
+            </div>
+            <div class="price">
+                <label class="elments" for="price">Preço</label>
+                <input class="elments" type="text" required formControlName="price" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ','}" >
+                <span class="validation" *ngIf="formGroup.get('price')?.invalid && formGroup.get('price')?.touched">
+                    Campo obrigatório
+                </span>
+            </div>
+            <div class="weight">
+                <label class="elments" for="weight">Peso</label>
+                <input class="elments" type="text" required formControlName="weight">
+                <span class="validation" *ngIf="formGroup.get('weight')?.invalid && formGroup.get('weight')?.touched">
+                    Campo obrigatório
+                </span>
+            </div>
+            <div class="description">
+                <label class="description" for="description">Descrição</label>
+                <input class="description" type="text" required formControlName="description">
+                <span class="validation" *ngIf="formGroup.get('description')?.invalid && formGroup.get('description')?.touched">
+                    Campo obrigatório
+                </span>
+            </div>
+            <div class="storage">
+                <label class="storage" for="storage">Estoque</label>
+                <input class="storage" type="text" required formControlName="storage">
+            </div>
+            <button class="submit" [disabled]="!formGroup.valid">Registrar</button>
+        </div>
+    </form>
+</div>

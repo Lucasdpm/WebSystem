@@ -1,11 +1,3 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import {MatTableModule} from '@angular/material/table';
-import { NgxMaskDirective, provideNgxMask , NgxMaskPipe} from 'ngx-mask';
-
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -18,7 +10,16 @@ import { UserDescriptionComponent } from './user-description/user-description.co
 import { LocalStorageService } from './local-storage.service';
 import { UserService } from './user.service';
 import { ProductDescriptionComponent } from './product-description/product-description.component';
+import { ProductRegisterComponent } from './product-register/product-register.component';
+import { CurrencyMaskModule } from "ng2-currency-mask";
 
+import { NgModule } from '@angular/core';
+import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { MatTableModule} from '@angular/material/table';
+import { NgxMaskDirective, provideNgxMask , NgxMaskPipe} from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ProductDescriptionComponent } from './product-description/product-descr
     HeaderComponent,
     FooterComponent,
     UserDescriptionComponent,
-    ProductDescriptionComponent
+    ProductDescriptionComponent,
+    ProductRegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,9 @@ import { ProductDescriptionComponent } from './product-description/product-descr
     ReactiveFormsModule,
     HttpClientModule,
     MatTableModule,
-    NgxMaskDirective, NgxMaskPipe
+    NgxMaskDirective,
+    NgxMaskPipe,
+    CurrencyMaskModule
   ],
   providers: [
     provideClientHydration(),
