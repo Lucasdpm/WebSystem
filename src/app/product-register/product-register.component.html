@@ -3,9 +3,9 @@
     <form [formGroup]="formGroup" (ngSubmit)="registerProduct()">
         <div class="container">
             <h1 class="title">Registrar</h1>
-            <div class="name">
-                <label class="name" for="name">Nome</label>
-                <input class="name" type="text" required formControlName="name">
+            <div class="rows">
+                <label class="elements" for="name">Nome</label>
+                <input class="elements" type="text" required formControlName="name">
                 <span class="validation" *ngIf="formGroup.get('name')?.invalid && formGroup.get('name')?.touched">
                     Campo obrigatório
                 </span>
@@ -13,26 +13,28 @@
                     Min. 5 caracteres
                 </span>
             </div>
-            <div class="price">
-                <label class="elments" for="price">Preço</label>
-                <input class="elments" type="text" required formControlName="price" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ','}" >
+            <div class="rows">
+                <label class="elements" for="price">Preço</label>
+                <input class="elements" type="text" required formControlName="price" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', align: 'left'}" >
                 <span class="validation" *ngIf="formGroup.get('price')?.invalid && formGroup.get('price')?.touched">
                     Campo obrigatório
                 </span>
             </div>
-            <div class="weight">
-                <label class="elments" for="weight">Peso</label>
-                <input class="elments" type="number" formControlName="weight">
+            <div class="rows">
+                <label class="elements" for="weight">Peso</label>
+                <input class="elements" min="0" type="number" formControlName="weight">
             </div>
-            <div class="description">
-                <label class="description" for="description">Descrição</label>
-                <input class="description" type="text" formControlName="description">
+            <div class="rows">
+                <label class="elements" for="description">Descrição</label>
+                <input class="elements" type="text" formControlName="description">
             </div>
-            <div class="storage">
-                <label class="storage" for="storage">Estoque</label>
-                <input class="storage" type="number" formControlName="storage">
+            <div class="rows">
+                <label class="elements" for="storage">Estoque</label>
+                <input class="elements" min="0" type="number" formControlName="storage">
             </div>
-            <button class="submit" [disabled]="!formGroup.valid || invalidName()">Registrar</button>
+            <div class="buttons">
+                <button class="submit" [disabled]="!formGroup.valid || invalidName()">Registrar</button>
+            </div>
         </div>
     </form>
 </div>

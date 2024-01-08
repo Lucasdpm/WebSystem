@@ -14,7 +14,3 @@ router-outlet {
     display: flexbox;
     text-align: center;
 }
-
-body {
-    background-image: url("../assets/919c.jpg");
-}

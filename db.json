@@ -27,36 +27,28 @@
   ],
   "products": [
     {
-      "name": "eesf",
+      "name": "Produto0",
       "price": 0,
       "weight": 0,
-      "description": "sef",
+      "description": "Primeiro produto",
       "storage": 0,
       "id": 1
     },
     {
-      "name": "wdawsef",
-      "price": 0,
-      "weight": 0,
-      "description": "",
-      "storage": "",
+      "name": "Produto1",
+      "price": 1,
+      "weight": 1,
+      "description": "Segundo produto",
+      "storage": 1,
       "id": 2
     },
     {
-      "name": "dawdawd",
-      "price": 3.45,
-      "weight": "345",
-      "description": "rdgdrg",
-      "storage": "",
+      "name": "Produto2",
+      "price": 2,
+      "weight": 2,
+      "description": "produto",
+      "storage": 2,
       "id": 3
-    },
-    {
-      "name": "rdgdrgdrg",
-      "price": 54.5,
-      "weight": "sef",
-      "description": "sef",
-      "storage": 0,
-      "id": 4
     }
   ]
 }

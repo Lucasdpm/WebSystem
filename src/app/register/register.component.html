@@ -2,16 +2,16 @@
     <form [formGroup]="formGroup" (ngSubmit)="registerUser()">
         <div class="container">
             <h1 class="title">Registrar</h1>
-            <div class="name">
-                <label class="name" for="name">Nome</label>
-                <input class="name" type="text" required formControlName="name">
+            <div class="rows" id="name">
+                <label class="elements" for="name">Nome</label>
+                <input class="elements" type="text" required formControlName="name">
                 <span class="validation" *ngIf="formGroup.get('name')?.invalid && formGroup.get('name')?.touched">
                     Campo obrigatório
                 </span>
             </div>
-            <div class="email">
-                <label class="elments" for="email">E-mail</label>
-                <input class="elments" type="text" required formControlName="email">
+            <div class="rows" id="email">
+                <label class="elements" for="email">E-mail</label>
+                <input class="elements" type="text" required formControlName="email">
                 <span class="validation" *ngIf="formGroup.get('email')?.invalid && formGroup.get('email')?.touched">
                     Campo obrigatório
                 </span>
@@ -19,9 +19,9 @@
                     Email inválido ou já cadastrado
                 </span>
             </div>
-            <div class="password">
-                <label class="elments" for="password">Senha</label>
-                <input #x type="password" class="elments" required formControlName="password">
+            <div class="rows" id="password">
+                <label class="elements" for="password">Senha</label>
+                <input #x type="password" class="elements" required formControlName="password">
                 <span class="validation" *ngIf="formGroup.get('password')?.invalid && formGroup.get('password')?.touched">
                     Campo obrigatório
                 </span>
@@ -29,9 +29,9 @@
                     Senha inválida: min. 8 caracteres, letras, números e caracteres especiais
                 </span>
             </div>
-            <div class="cpf">
-                <label class="cpf" for="cpf">CPF</label>
-                <input class="cpf" type="text" required formControlName="cpf" [mask]="'000.000.000-00'" >
+            <div class="rows" id="cpf">
+                <label class="elements" for="cpf">CPF</label>
+                <input class="elements" type="text" required formControlName="cpf" [mask]="'000.000.000-00'" >
                 <span class="validation" *ngIf="formGroup.get('cpf')?.invalid && formGroup.get('cpf')?.touched">
                     Campo obrigatório
                 </span>
@@ -39,8 +39,10 @@
                     CPF já cadastrado
                 </span>
             </div>
-            <button class="submit" [disabled]="!formGroup.valid || invalidEmail() || invalidPassword() || invalidCpf()">Registrar</button>
-            <label for="placeholder">Já possui conta? </label><a href="/login">Logar</a>
+            <div class="buttons">
+                <button class="submit" [disabled]="!formGroup.valid || invalidEmail() || invalidPassword() || invalidCpf()">Registrar</button>
+                <label for="placeholder">Já possui conta? </label><a href="/login">Logar</a>
+            </div>
         </div>
     </form>
 </div>

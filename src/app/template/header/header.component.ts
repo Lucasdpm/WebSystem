@@ -13,7 +13,7 @@ export class HeaderComponent{
 
   constructor(private userService: UserService, private router: Router) {
     this.userService.user.subscribe((value: User) => {
-      if (value.name === null) return
+      if (value === null) return
       this.logedUserName = value.name
     })
   }

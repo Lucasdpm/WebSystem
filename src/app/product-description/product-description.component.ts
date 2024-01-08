@@ -54,7 +54,7 @@ export class ProductDescriptionComponent {
   }
 
   submit() {
-    if (this.formGroup.value.storage == "") {
+    if (this.formGroup.value.storage === null) {
       this.formGroup.patchValue({
         storage: 0
       })

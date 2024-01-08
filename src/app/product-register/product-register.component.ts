@@ -39,7 +39,7 @@ export class ProductRegisterComponent {
   }
 
   registerProduct(): boolean {
-    if (this.formGroup.value.storage == "") {
+    if (this.formGroup.value.storage === null) {
       this.formGroup.patchValue({
         storage: 0
       })

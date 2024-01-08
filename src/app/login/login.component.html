@@ -2,25 +2,27 @@
     <form [formGroup]="formGroup" (ngSubmit)="logIn()">
         <div class="container">
             <h1 class="title">Login</h1>
-            <div class="email">
+            <div class="rows">
                 <label class="elements" for="email">E-mail</label>
                 <input class="elements" type="text" formControlName="email" >
                 <span class="validation" *ngIf="formGroup.get('email')?.invalid && formGroup.get('email')?.touched">
                     Campo obrigatório
                 </span>
             </div>
-            <div class="password">
+            <div class="rows">
                 <label class="elements" for="password">Senha</label>
                 <input #x type="password" class="elements" formControlName="password">
                 <span class="validation" *ngIf="formGroup.get('password')?.invalid && formGroup.get('password')?.touched">
                     Campo obrigatório
                 </span>
             </div>
-            <span class="validation" *ngIf="isInvalid">
+            <span class="rows" *ngIf="isInvalid">
                 E-mail ou senha incorretos
             </span>
-            <button class="submit">Logar</button>
-            <label for="placeholder">Não possui conta? </label><a href="/register">Registrar</a>
+            <div class="button">
+                <button class="submit">Logar</button>
+                <label for="placeholder">Não possui conta? </label><a href="/register">Registrar</a>
+            </div>
         </div>
     </form>
 </div>

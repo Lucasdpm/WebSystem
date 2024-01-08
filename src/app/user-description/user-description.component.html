@@ -3,14 +3,14 @@
     <form [formGroup]="formGroup" (ngSubmit)="submit()">
         <div class="container">
             <h1 class="title">Formulário do usuário</h1>
-            <div class="name">
+            <div class="rows">
                 <label class="name" for="name">Nome</label>
                 <input class="name" type="text" required formControlName="name">
                 <span class="validation" *ngIf="formGroup.get('name')?.invalid && formGroup.get('name')?.touched">
                     Campo obrigatório
                 </span>
             </div>
-            <div class="email">
+            <div class="rows">
                 <label class="elments" for="email">E-mail</label>
                 <input class="elments" type="text" required formControlName="email">
                 <span class="validation" *ngIf="formGroup.get('email')?.invalid && formGroup.get('email')?.touched"
@@ -21,14 +21,14 @@
                     Email inválido
                 </span>
             </div>
-            <div class="cpf">
+            <div class="rows">
                 <label class="cpf" for="cpf">CPF</label>
                 <input class="cpf" type="text" required formControlName="cpf" [mask]="'000.000.000-00'" >
                 <span class="validation" *ngIf="formGroup.get('cpf')?.invalid && formGroup.get('cpf')?.touched">
                     Campo obrigatório
                 </span>
             </div>
-            <div class="access">
+            <div class="rows">
                 <label class="access" for="access">Acesso</label>
                 <input class="access" type="text" required formControlName="access">
             </div>
@@ -38,8 +38,10 @@
             <span class="validation" *ngIf="invalidAccess()">
                 Acesso inválido
             </span>
-            <button class="submit" [disabled]="!formGroup.valid || invalidEmail() || invalidAccess() || userPermition()">Enviar</button>
-            <button class="delete" [disabled]="userPermition()" (click)="delete()">Deletar</button>
+            <div class="buttons">
+                <button class="submit" [disabled]="!formGroup.valid || invalidEmail() || invalidAccess() || userPermition()">Enviar</button>
+                <button class="delete" [disabled]="userPermition()" (click)="delete()">Deletar</button>
+            </div>
         </div>
     </form>
 </div>

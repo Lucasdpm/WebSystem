@@ -21,7 +21,6 @@ export class RegisterComponent {
       cpf: '',
       access: <Access>Access.user
     })
-    console.log("teste")
   
     this.userService.getAllUsers().subscribe(data => {
       this.userList = data
