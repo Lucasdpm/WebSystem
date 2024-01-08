@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from './user';
 import { LocalStorageService } from './local-storage.service';
 import { Router } from '@angular/router';
+import { Access } from './access';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class UserService {
   }
   user = new BehaviorSubject<User>(<User>{})
 
-  constructor (private httpClient: HttpClient, private localStorageService: LocalStorageService, private router: Router) { 
+  constructor (private httpClient: HttpClient, private localStorageService: LocalStorageService, private router: Router) {
     this.loggedUser()
   }
 
@@ -28,6 +29,10 @@ export class UserService {
       return false
     }
     return true
+  }
+
+  checkAccess(): Access {
+    return this.localStorageService.get(`user`).access
   }
 
   loggedUser() {

@@ -16,12 +16,12 @@
                     Campo obrigatório
                 </span>
                 <span class="validation" *ngIf="invalidEmail()">
-                    Email inválido
+                    Email inválido ou já cadastrado
                 </span>
             </div>
             <div class="password">
                 <label class="elments" for="password">Senha</label>
-                <input class="elments" type="text" required formControlName="password">
+                <input #x type="password" class="elments" required formControlName="password">
                 <span class="validation" *ngIf="formGroup.get('password')?.invalid && formGroup.get('password')?.touched">
                     Campo obrigatório
                 </span>
@@ -35,8 +35,11 @@
                 <span class="validation" *ngIf="formGroup.get('cpf')?.invalid && formGroup.get('cpf')?.touched">
                     Campo obrigatório
                 </span>
+                <span class="validation" *ngIf="invalidCpf()">
+                    CPF já cadastrado
+                </span>
             </div>
-            <button class="submit" [disabled]="!formGroup.valid || invalidEmail() || invalidPassword()">Registrar</button>
+            <button class="submit" [disabled]="!formGroup.valid || invalidEmail() || invalidPassword() || invalidCpf()">Registrar</button>
             <label for="placeholder">Já possui conta? </label><a href="/login">Logar</a>
         </div>
     </form>

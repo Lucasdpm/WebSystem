@@ -1,8 +1,13 @@
 .registerBody {
     display: flexbox;
+    text-align: center;
     height: 100%;
     width: 100%;
 
+}
+.back {
+    display: flexbox;
+    transform: translate(-225px, 150px);
 }
 form {
     height: 100%;

@@ -21,11 +21,8 @@ export class RegisterComponent {
       cpf: '',
       access: <Access>Access.user
     })
-    
-    if (this.userService.checkLogIn()) {
-      return
-    }
-
+    console.log("teste")
+  
     this.userService.getAllUsers().subscribe(data => {
       this.userList = data
     })
@@ -39,6 +36,20 @@ export class RegisterComponent {
     if (!found && input.length) {
       return true
     }
+    var areadyRegistered: boolean = false
+    this.userList.forEach(user => {
+      if(user.email === this.formGroup.value.email) areadyRegistered = true
+    })
+    if (areadyRegistered) return true
+    return false
+  }
+
+  invalidCpf(): boolean {
+    var alreadyRegistered: boolean = false
+    this.userList.forEach(user => {
+      if(user.cpf === this.formGroup.value.cpf) alreadyRegistered = true
+    })
+    if (alreadyRegistered) return true
     return false
   }
 

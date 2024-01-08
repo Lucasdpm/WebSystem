@@ -1,4 +1,5 @@
 <div class="registerBody">
+    <button class="back" routerLink="/productManagement">Voltar</button>
     <form [formGroup]="formGroup" (ngSubmit)="registerProduct()">
         <div class="container">
             <h1 class="title">Registrar</h1>
@@ -7,6 +8,9 @@
                 <input class="name" type="text" required formControlName="name">
                 <span class="validation" *ngIf="formGroup.get('name')?.invalid && formGroup.get('name')?.touched">
                     Campo obrigatório
+                </span>
+                <span *ngIf="invalidName() && formGroup.get('name')?.invalid && formGroup.get('name')?.touched">
+                    Min. 5 caracteres
                 </span>
             </div>
             <div class="price">
@@ -18,23 +22,17 @@
             </div>
             <div class="weight">
                 <label class="elments" for="weight">Peso</label>
-                <input class="elments" type="text" required formControlName="weight">
-                <span class="validation" *ngIf="formGroup.get('weight')?.invalid && formGroup.get('weight')?.touched">
-                    Campo obrigatório
-                </span>
+                <input class="elments" type="number" formControlName="weight">
             </div>
             <div class="description">
                 <label class="description" for="description">Descrição</label>
-                <input class="description" type="text" required formControlName="description">
-                <span class="validation" *ngIf="formGroup.get('description')?.invalid && formGroup.get('description')?.touched">
-                    Campo obrigatório
-                </span>
+                <input class="description" type="text" formControlName="description">
             </div>
             <div class="storage">
                 <label class="storage" for="storage">Estoque</label>
-                <input class="storage" type="text" required formControlName="storage">
+                <input class="storage" type="number" formControlName="storage">
             </div>
-            <button class="submit" [disabled]="!formGroup.valid">Registrar</button>
+            <button class="submit" [disabled]="!formGroup.valid || invalidName()">Registrar</button>
         </div>
     </form>
 </div>

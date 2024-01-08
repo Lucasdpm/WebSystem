@@ -1,25 +1,45 @@
 <div class="loginBody">
+    <button class="back" routerLink="/userManagement">Voltar</button>
     <form [formGroup]="formGroup" (ngSubmit)="submit()">
         <div class="container">
             <h1 class="title">Formulário do usuário</h1>
             <div class="name">
-                <label class="elements" for="name">Nome</label>
-                <input class="elements" type="text" formControlName="name">
+                <label class="name" for="name">Nome</label>
+                <input class="name" type="text" required formControlName="name">
+                <span class="validation" *ngIf="formGroup.get('name')?.invalid && formGroup.get('name')?.touched">
+                    Campo obrigatório
+                </span>
             </div>
             <div class="email">
-                <label class="elements" for="email">E-mail</label>
-                <input class="elements" type="text" formControlName="email">
+                <label class="elments" for="email">E-mail</label>
+                <input class="elments" type="text" required formControlName="email">
+                <span class="validation" *ngIf="formGroup.get('email')?.invalid && formGroup.get('email')?.touched"
+                [ngStyle]="{'background-color':'5px solid #a94442'}">
+                    Campo obrigatório
+                </span>
+                <span class="validation" *ngIf="invalidEmail()">
+                    Email inválido
+                </span>
             </div>
             <div class="cpf">
-                <label class="elements" for="cpf">CPF</label>
-                <input class="elements" type="text" formControlName="cpf">
+                <label class="cpf" for="cpf">CPF</label>
+                <input class="cpf" type="text" required formControlName="cpf" [mask]="'000.000.000-00'" >
+                <span class="validation" *ngIf="formGroup.get('cpf')?.invalid && formGroup.get('cpf')?.touched">
+                    Campo obrigatório
+                </span>
             </div>
             <div class="access">
-                <label class="elements" for="access">Acesso</label>
-                <input class="elements" type="text" formControlName="access">
+                <label class="access" for="access">Acesso</label>
+                <input class="access" type="text" required formControlName="access">
             </div>
-            <button class="submit">Enviar</button>
-            <button class="delete" (click)="delete()">Deletar</button>
+            <span class="validation" *ngIf="formGroup.get('access')?.invalid && formGroup.get('access')?.touched">
+                Campo obrigatório
+            </span>
+            <span class="validation" *ngIf="invalidAccess()">
+                Acesso inválido
+            </span>
+            <button class="submit" [disabled]="!formGroup.valid || invalidEmail() || invalidAccess() || userPermition()">Enviar</button>
+            <button class="delete" [disabled]="userPermition()" (click)="delete()">Deletar</button>
         </div>
     </form>
 </div>

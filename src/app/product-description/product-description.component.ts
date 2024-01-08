@@ -12,13 +12,11 @@ import { UserService } from '../user.service';
 })
 export class ProductDescriptionComponent {
 
-  
   productList: Product[] = []
   productId: number = Number.parseInt(this.router.url.slice(9))
-  
   formGroup: FormGroup
-  constructor(private productService: ProductService, private formBuilder:FormBuilder, private router: Router, private userService: UserService) { 
-    this.formGroup = this.formBuilder.group({
+  constructor(private productService: ProductService, private formBuilder:FormBuilder, private router: Router, private userService: UserService) {
+    this.formGroup = formBuilder.group(<Product> {
       name: "",
       price: 0,
       weight: 0,
@@ -26,10 +24,10 @@ export class ProductDescriptionComponent {
       storage: 0
     })
 
-    if (this.userService.checkLogIn()) {
+    if (!this.userService.checkLogIn()) {
       return
     }
-    
+
     this.productService.getAllProducts().subscribe(data => {
       this.productList = data
       this.formProductDetails()
@@ -50,11 +48,28 @@ export class ProductDescriptionComponent {
     })
   }
 
+  invalidName(): boolean{
+    if(this.formGroup.value.name.length < 5) return true
+    return false
+  }
+
   submit() {
+    if (this.formGroup.value.storage == "") {
+      this.formGroup.patchValue({
+        storage: 0
+      })
+    }
     this.productService.updateProduct(this.productId, this.formGroup.value).subscribe(product => {
       this.productList[this.productId] = product
     })
     this.router.navigate(['/productManagement'])
+  }
+
+  userPermition(): boolean {
+    if (this.userService.checkAccess() == 0) {
+      return false
+    }
+    return true
   }
 
   delete() {

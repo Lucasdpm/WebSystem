@@ -24,7 +24,7 @@ export class UserDescriptionComponent {
       access: ""
     })
     
-    if (this.userService.checkLogIn()) {
+    if (!this.userService.checkLogIn()) {
       return
     }
 
@@ -45,6 +45,35 @@ export class UserDescriptionComponent {
         access: user.access
       })
     })
+  }
+
+  userPermition(): boolean {
+    if (this.userService.checkAccess() == 1) {
+      return true
+    }
+    return false
+  }
+
+  invalidEmail(): boolean{
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+    let input: string = this.formGroup.value.email
+    let found: boolean = emailRegex.test(input)
+    if (!found && input.length) {
+      return true
+    }
+    return false
+  }
+
+  invalidAccess() {
+    const accesRegex = /^[0-2]$/;
+
+    let input: string = this.formGroup.value.access
+    let found: boolean = accesRegex.test(input)
+    if (!found && input.length) {
+      return true
+    }
+    return false
   }
 
   submit() {

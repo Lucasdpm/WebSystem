@@ -12,7 +12,10 @@ export class HeaderComponent{
   logedUserName: string = ''
 
   constructor(private userService: UserService, private router: Router) {
-    this.userService.user.subscribe((value: User) => this.logedUserName = value.name)
+    this.userService.user.subscribe((value: User) => {
+      if (value.name === null) return
+      this.logedUserName = value.name
+    })
   }
 
   logOff() {

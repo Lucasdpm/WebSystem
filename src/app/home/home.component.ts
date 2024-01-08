@@ -19,10 +19,10 @@ export class HomeComponent {
   numProducts: number = 0
 
   constructor(private userService: UserService, private productService: ProductService) {
-    if (this.userService.checkLogIn()) {
+    if (!this.userService.checkLogIn()) {
       return
     }
-
+    
     this.userService.getAllUsers().subscribe(data => {
       this.userList = data
       this.numUsers = this.userList.length
@@ -33,5 +33,12 @@ export class HomeComponent {
       this.productList = data
       this.numProducts = this.productList.length
     })
+  }
+
+  userPermition(): boolean {
+    if (this.userService.checkAccess() == 0) {
+      return false
+    }
+    return true
   }
 }

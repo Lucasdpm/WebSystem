@@ -1,29 +1,39 @@
-<div class="loginBody">
+<div class="registerBody">
+    <button class="back" routerLink="/productManagement">Voltar</button>
     <form [formGroup]="formGroup" (ngSubmit)="submit()">
         <div class="container">
-            <h1 class="title">Formulario do produto</h1>
+            <h1 class="title">Registrar</h1>
             <div class="name">
-                <label class="elements" for="name">Nome</label>
-                <input class="elements" type="text" formControlName="name">
+                <label class="name" for="name">Nome</label>
+                <input class="name" type="text" required formControlName="name">
+                <span class="validation" *ngIf="formGroup.get('name')?.invalid && formGroup.get('name')?.touched">
+                    Campo obrigatório
+                </span>
+                <span *ngIf="invalidName() && formGroup.get('name')?.invalid && formGroup.get('name')?.touched">
+                    Min. 5 caracteres
+                </span>
             </div>
             <div class="price">
-                <label class="elements" for="price">Preço</label>
-                <input class="elements" type="text" formControlName="price">
+                <label class="elments" for="price">Preço</label>
+                <input class="elments" type="text" required formControlName="price" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ','}" >
+                <span class="validation" *ngIf="formGroup.get('price')?.invalid && formGroup.get('price')?.touched">
+                    Campo obrigatório
+                </span>
             </div>
             <div class="weight">
-                <label class="elements" for="weight">Peso</label>
-                <input class="elements" type="text" formControlName="weight">
+                <label class="elments" for="weight">Peso</label>
+                <input class="elments" type="text" formControlName="weight">
             </div>
             <div class="description">
-                <label class="elements" for="description">Descrição</label>
-                <input class="elements" type="text" formControlName="description">
+                <label class="description" for="description">Descrição</label>
+                <input class="description" type="text" formControlName="description">
             </div>
             <div class="storage">
-                <label class="elements" for="storage">Estoque</label>
-                <input class="elements" type="text" formControlName="storage">
+                <label class="storage" for="storage">Estoque</label>
+                <input class="storage" type="text" formControlName="storage">
             </div>
-            <button class="submit">Enviar</button>
-            <button class="delete" (click)="delete()">Deletar</button>
+            <button class="submit" [disabled]="!formGroup.valid || invalidName()">Registrar</button>
+            <button class="delete" *ngIf="userPermition()" (click)="delete()">Deletar</button>
         </div>
     </form>
 </div>

@@ -3,7 +3,7 @@
     <h2 class="text">Número de usuarios cadastrados: {{ numUsers }}</h2>
     <h2 class="text">Número de produtos cadastrados: {{ numProducts }}</h2>
     <div class="buttons">
-        <a routerLink="/userManagement"><button >Ver usuários</button></a>
+        <a routerLink="/userManagement" *ngIf="userPermition()"><button >Ver usuários</button></a>
         <a routerLink="/productManagement"><button>Ver produtos</button></a>
     </div>
 </div>

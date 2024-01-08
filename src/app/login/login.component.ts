@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit{
       password: "admin"
     })
 
-    if (this.userService.checkLogIn()) {
+    if (!this.userService.checkLogIn()) {
       return
     }
   }

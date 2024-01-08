@@ -1,3 +1,11 @@
+.registerBody {
+    display: flexbox;
+    text-align: center;
+}
+.back {
+    display: flexbox;
+    transform: translate(-225px, 150px);
+}
 .loginBody {
     display: flexbox;
     height: 100%;
@@ -34,9 +42,6 @@ input {
     display: flexbox;
     width: 300px;
     height: 25px;
-}
-button {
-
 }
 
 

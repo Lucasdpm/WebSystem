@@ -14,7 +14,7 @@ export class ProductManagementComponent {
   displayedColumns: string[] = ['name', 'price', 'weight', 'description', 'storage'];
 
   constructor(private productService: ProductService, private userService: UserService) {
-    if (this.userService.checkLogIn()) {
+    if (!this.userService.checkLogIn()) {
       return
     }
     

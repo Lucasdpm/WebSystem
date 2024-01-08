@@ -5,7 +5,6 @@ import { Product } from '../product';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 
-
 @Component({
   selector: 'app-product-register',
   templateUrl: './product-register.component.html',
@@ -24,23 +23,27 @@ export class ProductRegisterComponent {
       description: "",
       storage: 0
     })
-    if (this.userService.checkLogIn()) {
+
+    if (!this.userService.checkLogIn()) {
       return
     }
+
     this.productService.getAllProducts().subscribe(data => {
       this.productList = data
     })
   }
 
   invalidName(): boolean{
+    if(this.formGroup.value.name.length < 5) return true
     return false
   }
 
-  invalidPassword(): boolean{
-    return true
-  }
-
   registerProduct(): boolean {
+    if (this.formGroup.value.storage == "") {
+      this.formGroup.patchValue({
+        storage: 0
+      })
+    }
     this.productService.addProduct(this.formGroup.value).subscribe(product => {
       this.productList.push(product)
     })

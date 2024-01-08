@@ -9,12 +9,12 @@
       "access": "0"
     },
     {
-      "id": 1,
       "name": "Mod",
       "email": "mod@mod.com.br",
       "password": "mod",
-      "cpf": "100.100.100-10",
-      "access": "1"
+      "cpf": "10010010010",
+      "access": "1",
+      "id": 1
     },
     {
       "id": 2,
@@ -27,28 +27,36 @@
   ],
   "products": [
     {
-      "id": 0,
-      "name": "Zero",
+      "name": "eesf",
       "price": 0,
       "weight": 0,
-      "description": "one",
-      "storage": 0
+      "description": "sef",
+      "storage": 0,
+      "id": 1
     },
     {
-      "id": 1,
-      "name": "One",
-      "price": 1,
-      "weight": 1,
-      "description": "one",
-      "storage": 1
+      "name": "wdawsef",
+      "price": 0,
+      "weight": 0,
+      "description": "",
+      "storage": "",
+      "id": 2
     },
     {
-      "id": 2,
-      "name": "Two",
-      "price": 2,
-      "weight": 2,
-      "description": "two",
-      "storage": 2
+      "name": "dawdawd",
+      "price": 3.45,
+      "weight": "345",
+      "description": "rdgdrg",
+      "storage": "",
+      "id": 3
+    },
+    {
+      "name": "rdgdrgdrg",
+      "price": 54.5,
+      "weight": "sef",
+      "description": "sef",
+      "storage": 0,
+      "id": 4
     }
   ]
 }
