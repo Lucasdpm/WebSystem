@@ -1,19 +1,19 @@
 {
   "users": [
     {
-      "id": 0,
       "name": "User",
       "email": "user@user.com.br",
       "password": "user",
-      "cpf": "000.000.000-00",
-      "access": "0"
+      "cpf": "00000000000",
+      "access": 0,
+      "id": 0
     },
     {
       "name": "Mod",
       "email": "mod@mod.com.br",
       "password": "mod",
       "cpf": "10010010010",
-      "access": "1",
+      "access": 1,
       "id": 1
     },
     {
@@ -22,7 +22,15 @@
       "email": "admin@admin.com.br",
       "password": "admin",
       "cpf": "200.200.200-20",
-      "access": "2"
+      "access": 2
+    },
+    {
+      "name": "teste",
+      "email": "teste@tes.com",
+      "password": "teste@22",
+      "cpf": "46346343463",
+      "access": 0,
+      "id": 3
     }
   ],
   "products": [
@@ -35,20 +43,20 @@
       "id": 1
     },
     {
-      "name": "Produto1",
-      "price": 1,
-      "weight": 1,
-      "description": "Segundo produto",
-      "storage": 1,
-      "id": 2
-    },
-    {
       "name": "Produto2",
       "price": 2,
       "weight": 2,
       "description": "produto",
       "storage": 2,
       "id": 3
+    },
+    {
+      "name": "teste",
+      "price": 10,
+      "weight": 5,
+      "description": "",
+      "storage": 0,
+      "id": 4
     }
   ]
 }

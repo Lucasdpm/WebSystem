@@ -1,9 +1,9 @@
 import { Component, Output , EventEmitter} from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { UserService } from '../user.service';
+import { UserService } from '../../user.service';
 import { OnInit } from '@angular/core';
-import { User } from '../user';
-import { Access } from '../access';
+import { User } from '../../user';
+import { Access } from '../../access';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({

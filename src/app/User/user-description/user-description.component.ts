@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserService } from '../user.service';
-import { User } from '../user';
+import { UserService } from '../../user.service';
+import { User } from '../../user';
 
 
 @Component({
@@ -24,10 +24,6 @@ export class UserDescriptionComponent {
       access: ""
     })
     
-    if (!this.userService.checkLogIn()) {
-      return
-    }
-
     this.userService.getAllUsers().subscribe(data => {
       this.userList = data
       this.formUserDetails()

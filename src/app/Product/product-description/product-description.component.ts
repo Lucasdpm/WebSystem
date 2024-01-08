@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ProductService } from '../product.service';
-import { Product } from '../product';
-import { UserService } from '../user.service';
+import { ProductService } from '../../product.service';
+import { Product } from '../../product';
+import { UserService } from '../../user.service';
 
 @Component({
   selector: 'app-product-description',

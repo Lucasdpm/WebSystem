@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { UserService } from '../user.service';
-import { User } from '../user';
-import { Access } from '../access';
+import { UserService } from '../../user.service';
+import { User } from '../../user';
+import { Access } from '../../access';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',

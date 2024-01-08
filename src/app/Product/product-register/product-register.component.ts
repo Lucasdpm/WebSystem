@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { ProductService } from '../product.service';
-import { Product } from '../product';
+import { ProductService } from '../../product.service';
+import { Product } from '../../product';
 import { Router } from '@angular/router';
-import { UserService } from '../user.service';
+import { UserService } from '../../user.service';
 
 @Component({
   selector: 'app-product-register',
@@ -23,11 +23,7 @@ export class ProductRegisterComponent {
       description: "",
       storage: 0
     })
-
-    if (!this.userService.checkLogIn()) {
-      return
-    }
-
+    
     this.productService.getAllProducts().subscribe(data => {
       this.productList = data
     })
