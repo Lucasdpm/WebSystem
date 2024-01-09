@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from '../app-routing.module';
+import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule} from '@angular/material/table';
@@ -20,6 +21,7 @@ import { ProductRegisterComponent } from '../Product/product-register/product-re
   imports: [
     CommonModule,
     BrowserModule,
+    RouterModule,
     AppRoutingModule,
     HttpClientModule,
     CurrencyMaskModule,
@@ -28,6 +30,11 @@ import { ProductRegisterComponent } from '../Product/product-register/product-re
   ],
   providers: [
     provideClientHydration()
+  ],
+  exports: [
+    ProductManagementComponent,
+    ProductDescriptionComponent,
+    ProductRegisterComponent
   ]
 })
 export class ProductModule { }

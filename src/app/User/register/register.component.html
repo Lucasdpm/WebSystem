@@ -1,4 +1,4 @@
-<div class="registerBody">
+<!-- <div class="registerBody">
     <form [formGroup]="formGroup" (ngSubmit)="registerUser()">
         <div class="container">
             <h1 class="title">Registrar</h1>
@@ -42,6 +42,46 @@
             <div class="buttons">
                 <button class="submit" [disabled]="!formGroup.valid || invalidEmail() || invalidPassword() || invalidCpf()">Registrar</button>
                 <label for="placeholder">Já possui conta? </label><a href="/login">Logar</a>
+            </div>
+        </div>
+    </form>
+</div>
+ -->
+
+
+<div class="loginBody">
+    <form class="was-validated" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+        <div class="container bg-body-tertiary align-midle rounded">
+            <legend>Registrar</legend>
+            <div class="mb-3" [ngClass]="displayFieldCss('name')">
+                <label for="validationCustom01" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="validationCustom01" required formControlName="name">
+                <app-field-error-display [displayError]="!!isFieldValid('name')" errorMsg="Informe o nome">
+                </app-field-error-display>
+            </div>
+            <div class="mb-3" [ngClass]="displayFieldCss('email')">
+                <label for="validationCustom01" class="form-label">E-mail</label>
+                <input type="text" class="form-control" id="validationCustom01" required formControlName="email">
+                <app-field-error-display [displayError]="!!isFieldValid('email')" errorMsg="Informe o email">
+                </app-field-error-display>
+            </div>
+            <div class="mb-3" [ngClass]="displayFieldCss('password')">
+                <label for="validationCustom01" class="form-label">Senha</label>
+                <input type="text" class="form-control" id="validationCustom01" required formControlName="password">
+                <app-field-error-display [displayError]="!!isFieldValid('password')" errorMsg="Informe a senha">
+                </app-field-error-display>
+            </div>
+            <div class="mb-3" [ngClass]="displayFieldCss('cpf')">
+                <label for="validationCustom01" class="form-label">CPF</label>
+                <input type="text" class="form-control" id="validationCustom01" placeholder="000.000.000-00" required formControlName="cpf" [mask]="'000.000.000-00'">
+                <app-field-error-display [displayError]="!!isFieldValid('cpf')" errorMsg="Informe o cpf">
+                </app-field-error-display>
+            </div>
+            <div class="container text-center mt-4">
+                <div class="row">
+                <button type="submit" class="btn btn-primary col mb-3">Registrar</button>
+                <p class="align-text-right">Já possui conta? <a href="/login" class="link-opacity-75-hover col">Logar</a></p>
+            </div>
             </div>
         </div>
     </form>

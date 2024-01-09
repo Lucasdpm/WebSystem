@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from '../app-routing.module';
+import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule} from '@angular/material/table';
@@ -12,17 +13,20 @@ import { LoginComponent } from '../User/login/login.component';
 import { RegisterComponent } from '../User/register/register.component';
 import { UserManagementComponent } from '../User/user-management/user-management.component';
 import { UserDescriptionComponent } from '../User/user-description/user-description.component';
+import { FieldErrorDisplayComponent } from '../field-error-display/field-error-display.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     RegisterComponent,
     UserManagementComponent,
-    UserDescriptionComponent
+    UserDescriptionComponent,
+    FieldErrorDisplayComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
+    RouterModule,
     AppRoutingModule,
     HttpClientModule,
     NgxMaskDirective,
@@ -34,6 +38,12 @@ import { UserDescriptionComponent } from '../User/user-description/user-descript
     UserService,
     provideNgxMask(),
     provideClientHydration()
+  ],
+  exports: [
+    LoginComponent,
+    RegisterComponent,
+    UserManagementComponent,
+    UserDescriptionComponent
   ]
 })
 export class UserModule { }
