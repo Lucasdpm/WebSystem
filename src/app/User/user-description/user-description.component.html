@@ -1,46 +1,59 @@
-<div class="loginBody">
-    <button class="back" routerLink="/userManagement">Voltar</button>
+<div class="registerBody">
+    <button class="back btn btn-primary mt-4 ms-4" routerLink="/userManagement">Voltar</button>
     <form [formGroup]="formGroup" (ngSubmit)="submit()">
-        <div class="container">
-            <h1 class="title">Formulário do usuário</h1>
-            <div class="rows">
-                <label class="name" for="name">Nome</label>
-                <input class="name" type="text" required formControlName="name">
-                <span class="validation" *ngIf="formGroup.get('name')?.invalid && formGroup.get('name')?.touched">
-                    Campo obrigatório
-                </span>
+        <div class="container bg-body-tertiary align-midle rounded position-absolute top-50 start-50 translate-middle w-50">
+            <legend class="mt-3">Registrar</legend>
+            <div class="mb-3">
+                <label for="validationCustom01" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="validationCustom01" formControlName="name" placeholder="nome"
+                [ngClass]="{
+                'is-invalid': (submitted || formGroup.controls['name'].touched) && formGroup.controls['name'].invalid, 
+                'is-valid': formGroup.controls['name'].valid}">
+                <div class="invalid-feedback">
+                    Campo nome é obrigatório
+                </div>
             </div>
-            <div class="rows">
-                <label class="elments" for="email">E-mail</label>
-                <input class="elments" type="text" required formControlName="email">
-                <span class="validation" *ngIf="formGroup.get('email')?.invalid && formGroup.get('email')?.touched"
-                [ngStyle]="{'background-color':'5px solid #a94442'}">
-                    Campo obrigatório
-                </span>
-                <span class="validation" *ngIf="invalidEmail()">
-                    Email inválido
-                </span>
+
+            <div class="mb-3">
+                <label for="validationCustom02" class="form-label">E-mail</label>
+                <input type="text" class="form-control" id="validationCustom02" formControlName="email" placeholder="exemplo@xmpl.com"
+                [ngClass]="{
+                    'is-invalid': (submitted || formGroup.controls['email'].touched) && (formGroup.controls['email'].invalid || emailCheck()),
+                    'is-valid': formGroup.controls['email'].valid && !emailCheck()}">
+                <div class="invalid-feedback">
+                    Email inválido ou já cadastrado
+                </div>
             </div>
-            <div class="rows">
-                <label class="cpf" for="cpf">CPF</label>
-                <input class="cpf" type="text" required formControlName="cpf" [mask]="'000.000.000-00'" >
-                <span class="validation" *ngIf="formGroup.get('cpf')?.invalid && formGroup.get('cpf')?.touched">
-                    Campo obrigatório
-                </span>
+
+            <div class="mb-3">
+                <label for="validationCustom03" class="form-label">CPF</label>
+                <input type="text" class="form-control" id="validationCustom03" placeholder="000.000.000-00" required formControlName="cpf" [mask]="'000.000.000-00'"
+                [ngClass]="{
+                    'is-invalid': (submitted || formGroup.controls['cpf'].touched) && (formGroup.controls['cpf'].invalid || cpfCheck()),
+                    'is-valid': formGroup.controls['cpf'].valid && !cpfCheck()}">
+                <div class="invalid-feedback">
+                    Cpf inválido ou já cadastrado
+                </div>
             </div>
-            <div class="rows">
-                <label class="access" for="access">Acesso</label>
-                <input class="access" type="text" required formControlName="access">
+
+            <div class="mb-3">
+                <label for="validationCustom04" class="form-label">Acesso</label>
+                <select class="form-select" id="validationCustom04" required formControlName="access"
+                [ngClass]="{
+                    'is-invalid': (submitted || formGroup.controls['access'].touched) && (formGroup.controls['access'].invalid),
+                    'is-valid': formGroup.controls['access'].valid }">
+                    <option>Usuário</option>
+                    <option>Moderador</option>
+                    <option>Administrador</option>
+                </select>
             </div>
-            <span class="validation" *ngIf="formGroup.get('access')?.invalid && formGroup.get('access')?.touched">
-                Campo obrigatório
-            </span>
-            <span class="validation" *ngIf="invalidAccess()">
-                Acesso inválido
-            </span>
-            <div class="buttons">
-                <button class="submit" [disabled]="!formGroup.valid || invalidEmail() || invalidAccess() || userPermition()">Enviar</button>
-                <button class="delete" [disabled]="userPermition()" (click)="delete()">Deletar</button>
+            
+            <div class="container text-center mt-4">
+                <div class="row gap-3">
+                <button type="submit" class="btn btn-primary col">Registrar</button>
+                <button class="delete" class="btn btn-primary col" [disabled]="userPermition()" (click)="delete()">Deletar</button>
+                <p class="align-text-right">Já possui conta? <a href="/login" class="link-opacity-75-hover col">Logar</a></p>
+            </div>
             </div>
         </div>
     </form>

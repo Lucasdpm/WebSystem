@@ -13,15 +13,13 @@ import { LoginComponent } from '../User/login/login.component';
 import { RegisterComponent } from '../User/register/register.component';
 import { UserManagementComponent } from '../User/user-management/user-management.component';
 import { UserDescriptionComponent } from '../User/user-description/user-description.component';
-import { FieldErrorDisplayComponent } from '../field-error-display/field-error-display.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     RegisterComponent,
     UserManagementComponent,
-    UserDescriptionComponent,
-    FieldErrorDisplayComponent
+    UserDescriptionComponent
   ],
   imports: [
     CommonModule,

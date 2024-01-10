@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ProductService } from '../../product.service';
 import { Product } from '../../product';
 import { UserService } from '../../user.service';
+import { Access } from '../../access';
 
 @Component({
   selector: 'app-product-description',
@@ -66,7 +67,7 @@ export class ProductDescriptionComponent {
   }
 
   userPermition(): boolean {
-    if (this.userService.checkAccess() == 0) {
+    if (this.userService.checkAccess() === Access.user) {
       return false
     }
     return true

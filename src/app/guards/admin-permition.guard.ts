@@ -1,7 +1,6 @@
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
-import { filter, map } from 'rxjs';
 import { Access } from '../access';
 
 export const adminPermitionGuard = () => {

@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../../user.service';
 import { User } from '../../user';
+import { Access } from '../../access';
 
 
 @Component({
@@ -14,14 +15,18 @@ export class UserDescriptionComponent {
 
   userList: User[] = []
   userId: number = Number.parseInt(this.router.url.slice(6))
-
   formGroup: FormGroup
+  currentEmail: String = ''
+  currentCpf: String = ''
+  submitted = false
+
   constructor(private userService: UserService, private formBuilder:FormBuilder, private router: Router) { 
     this.formGroup = this.formBuilder.group({
-      name: "",
-      email: "",
-      cpf: "",
-      access: ""
+      name: ['', [Validators.required]],
+      email: ['', [Validators.required, this.emailValidator]],
+      password: [''],
+      cpf: ['', [Validators.required]],
+      access: [<Access>{}]
     })
     
     this.userService.getAllUsers().subscribe(data => {
@@ -34,9 +39,13 @@ export class UserDescriptionComponent {
     let userDetail: User = <User>{}
     this.userService.getUserById(this.userId).subscribe(user => {
 
+      this.currentEmail = user.email
+      this.currentCpf = user.cpf
+
       this.formGroup = this.formBuilder.group({
         name: user.name,
         email: user.email,
+        password: user.password,
         cpf: user.cpf,
         access: user.access
       })
@@ -44,39 +53,67 @@ export class UserDescriptionComponent {
   }
 
   userPermition(): boolean {
-    if (this.userService.checkAccess() == 1) {
+    if (this.userService.checkAccess() == Access.mod) {
       return true
     }
     return false
   }
 
-  invalidEmail(): boolean{
-    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+  emailValidator(control: AbstractControl) {
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
+    const email = control.value
 
-    let input: string = this.formGroup.value.email
-    let found: boolean = emailRegex.test(input)
-    if (!found && input.length) {
-      return true
-    }
-    return false
+    const valid = emailRegex.test(email)
+    return valid ? null : {emailValidator: true}
   }
 
-  invalidAccess() {
-    const accesRegex = /^[0-2]$/;
+  accessValidator(control: AbstractControl) {
+    const accessRegex = /^[0-2]$/;
+    const access = control.value
 
-    let input: string = this.formGroup.value.access
-    let found: boolean = accesRegex.test(input)
-    if (!found && input.length) {
-      return true
-    }
-    return false
+    const valid = accessRegex.test(access)
+    return valid ? null : {emailValidator: true}
+  }
+  
+  emailCheck(): boolean {
+    let alreadyRegistered: boolean = false
+    this.userList.forEach(user => {
+      if (user.email === this.formGroup.value.email) {
+        if (this.currentEmail !== this.formGroup.value.email) {
+          alreadyRegistered = true
+        }
+      }
+    })
+    return alreadyRegistered
+  }
+
+  cpfCheck(): boolean {
+    var alreadyRegistered: boolean = false
+    this.userList.forEach(user => {
+      if(user.cpf === this.formGroup.value.cpf) {
+        if (this.currentCpf !== this.formGroup.value.cpf) {
+          alreadyRegistered = true
+        }
+      }
+    })
+    return alreadyRegistered
   }
 
   submit() {
+    this.submitted = true
+
+    if(this.formGroup.invalid) {
+      return false
+    }
+    if(this.cpfCheck() || this.emailCheck()) {
+      return false
+    }
+
     this.userService.updateUser(this.userId, this.formGroup.value).subscribe(user => {
       this.userList[this.userId] = user
     })
     this.router.navigate(['/userManagement'])
+    return
   }
 
   delete() {

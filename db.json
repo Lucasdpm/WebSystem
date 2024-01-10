@@ -5,96 +5,32 @@
       "email": "user@user.com.br",
       "password": "user",
       "cpf": "00000000000",
-      "access": 0,
-      "id": 0
+      "access": "Usuário",
+      "id": 1
     },
     {
       "name": "Mod",
       "email": "mod@mod.com.br",
       "password": "mod",
       "cpf": "10010010010",
-      "access": 1,
-      "id": 1
+      "access": "Moderador",
+      "id": 2
     },
     {
-      "id": 2,
       "name": "Admin",
       "email": "admin@admin.com.br",
       "password": "admin",
-      "cpf": "200.200.200-20",
-      "access": 2
+      "cpf": "20020020020",
+      "access": "Administrador",
+      "id": 3
     },
     {
       "name": "teste",
       "email": "teste@tes.com",
-      "password": "teste@22",
-      "cpf": "46346343463",
-      "access": 0,
-      "id": 3
-    },
-    {
-      "name": "",
-      "email": "",
-      "password": "",
-      "cpf": "",
-      "access": 0,
+      "password": "teste@123",
+      "cpf": "12312312312",
+      "access": "Usuário",
       "id": 4
-    },
-    {
-      "name": "",
-      "email": "",
-      "password": "",
-      "cpf": "",
-      "access": 0,
-      "id": 5
-    },
-    {
-      "name": "ola",
-      "email": "teste@teste.com",
-      "password": "user#1234user",
-      "cpf": "23532523554",
-      "access": 0,
-      "id": 6
-    },
-    {
-      "name": null,
-      "email": "",
-      "password": "",
-      "cpf": "",
-      "access": 0,
-      "id": 7
-    },
-    {
-      "name": "esfesfesf",
-      "email": "teste@tes.com",
-      "password": "fesfef#213wda",
-      "cpf": "34243242344",
-      "access": 0,
-      "id": 8
-    },
-    {
-      "name": "",
-      "email": "",
-      "password": "",
-      "cpf": "",
-      "access": 0,
-      "id": 9
-    },
-    {
-      "name": "",
-      "email": "",
-      "password": "",
-      "cpf": "",
-      "access": 0,
-      "id": 10
-    },
-    {
-      "name": "efesfsefsef",
-      "email": "teste@tes.com",
-      "password": "teste#123",
-      "cpf": "11111111111",
-      "access": 0,
-      "id": 11
     }
   ],
   "products": [
@@ -102,9 +38,17 @@
       "name": "Produto0",
       "price": 0,
       "weight": 0,
-      "description": "Primeiro produto",
+      "description": "produto",
       "storage": 0,
       "id": 1
+    },
+    {
+      "name": "Produto1",
+      "price": 1,
+      "weight": 1,
+      "description": "produto",
+      "storage": 1,
+      "id": 2
     },
     {
       "name": "Produto2",
@@ -115,12 +59,44 @@
       "id": 3
     },
     {
-      "name": "teste",
-      "price": 10,
-      "weight": 5,
+      "name": "",
+      "price": 0,
+      "weight": 0,
       "description": "",
       "storage": 0,
       "id": 4
+    },
+    {
+      "name": null,
+      "price": null,
+      "weight": null,
+      "description": null,
+      "storage": 0,
+      "id": 5
+    },
+    {
+      "name": null,
+      "price": "",
+      "weight": null,
+      "description": null,
+      "storage": 0,
+      "id": 6
+    },
+    {
+      "name": "esfesf",
+      "price": "",
+      "weight": "112s1",
+      "description": null,
+      "storage": "1",
+      "id": 7
+    },
+    {
+      "name": "teste",
+      "price": 0.34,
+      "weight": "213",
+      "description": "sefsef",
+      "storage": "23",
+      "id": 8
     }
   ]
 }

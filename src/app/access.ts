@@ -1,5 +1,5 @@
 export enum Access {
-    user,
-    mod,
-    admin
+    user = 'Usuário',
+    mod = 'Moderador',
+    admin = 'Administrador'
 }

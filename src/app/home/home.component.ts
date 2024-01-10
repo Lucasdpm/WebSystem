@@ -3,6 +3,7 @@ import { UserService } from '../user.service';
 import { User } from '../user';
 import { ProductService } from '../product.service';
 import { Product } from '../product';
+import { Access } from '../access';
 
 @Component({
   selector: 'app-home',
@@ -36,7 +37,7 @@ export class HomeComponent {
   }
 
   userPermition(): boolean {
-    if (this.userService.checkAccess() == 0) {
+    if (this.userService.checkAccess() === Access.user) {
       return false
     }
     return true

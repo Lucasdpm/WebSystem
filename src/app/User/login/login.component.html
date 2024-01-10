@@ -1,36 +1,7 @@
-<!-- <div class="loginBody">
-    <form [formGroup]="formGroup" (ngSubmit)="logIn()">
-        <div class="container ">
-            <h1 class="title">Login</h1>
-            <div class="rows">
-                <label class="elements" for="email">E-mail</label>
-                <input class="elements" type="text" formControlName="email" >
-                <span class="validation" *ngIf="formGroup.get('email')?.invalid && formGroup.get('email')?.touched">
-                    Campo obrigatório
-                </span>
-            </div>
-            <div class="rows">
-                <label class="elements" for="password">Senha</label>
-                <input #x type="password" class="elements" formControlName="password">
-                <span class="validation" *ngIf="formGroup.get('password')?.invalid && formGroup.get('password')?.touched">
-                    Campo obrigatório
-                </span>
-            </div>
-            <span class="rows" *ngIf="isInvalid">
-                E-mail ou senha incorretos
-            </span>
-            <div class="button">
-                <button class="submit">Logar</button>
-                <label for="placeholder">Não possui conta? </label><a href="/register">Registrar</a>
-            </div>
-        </div>
-    </form>
-</div> -->
-
 <div class="loginBody">
     <form class="needs-validation" [formGroup]="formGroup" (ngSubmit)="logIn()">
-        <div class="container bg-body-tertiary align-midle rounded">
-            <legend>Login</legend>
+        <div class="container bg-body-tertiary align-midle rounded position-absolute top-50 start-50 translate-middle w-50">
+            <legend class="mt-3">Login</legend>
             <div class="mb-3">
                 <label for="validationCustom01" class="form-label">E-mail</label>
                 <input type="text" class="form-control" id="validationCustom01" required formControlName="email">
@@ -40,7 +11,7 @@
             </div>
             <div class="mb-3">
                 <label for="validationCustom02" class="form-label">Senha</label>
-                <input type="text" class="form-control" id="validationCustom02" required formControlName="password">
+                <input #x type="password" class="form-control" id="validationCustom02" required formControlName="password">
                 <div class="invalid-feedback">
                     E-mail ou Senha incorretos
                 </div>
