@@ -17,8 +17,8 @@ export class LoginComponent implements OnInit{
   formGroup: FormGroup
   constructor(private userService: UserService, private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute) { 
     this.formGroup = formBuilder.group(<User> {
-      email: "admin@admin.com.br",
-      password: "admin"
+      email: "",
+      password: ""
     })
 
     if (!this.userService.checkLogIn()) {

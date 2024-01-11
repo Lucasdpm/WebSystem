@@ -26,11 +26,11 @@
     },
     {
       "name": "teste",
-      "email": "teste@tes.com",
+      "email": "teste@teste.com",
       "password": "teste@123",
-      "cpf": "12312312312",
-      "access": "Usuário",
-      "id": 4
+      "cpf": "10020030040",
+      "access": "Moderador",
+      "id": 5
     }
   ],
   "products": [
@@ -72,14 +72,6 @@
       "weight": "--",
       "description": "--",
       "storage": 0,
-      "id": 13
-    },
-    {
-      "name": "teste",
-      "price": 0,
-      "weight": "--",
-      "description": "--",
-      "storage": 0,
       "id": 14
     },
     {
@@ -99,12 +91,28 @@
       "id": 16
     },
     {
-      "name": "teste",
+      "name": "teste1",
+      "price": 10,
+      "weight": "5,5",
+      "description": "teste",
+      "storage": "5",
+      "id": 17
+    },
+    {
+      "name": "teste2",
       "price": 0,
       "weight": "--",
       "description": "--",
       "storage": 0,
-      "id": 17
+      "id": 18
+    },
+    {
+      "name": "teste3",
+      "price": 0,
+      "weight": "--",
+      "description": "--",
+      "storage": 0,
+      "id": 19
     }
   ]
 }
