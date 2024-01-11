@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from '../app-routing.module';
@@ -11,6 +11,10 @@ import { CurrencyMaskModule } from "ng2-currency-mask";
 import { ProductManagementComponent } from '../Product/product-management/product-management.component';
 import { ProductDescriptionComponent } from '../Product/product-description/product-description.component';
 import { ProductRegisterComponent } from '../Product/product-register/product-register.component';
+import localePt from '@angular/common/locales/pt';
+import {registerLocaleData} from '@angular/common';
+
+registerLocaleData(localePt, 'pt');
 
 @NgModule({
   declarations: [
@@ -29,7 +33,15 @@ import { ProductRegisterComponent } from '../Product/product-register/product-re
     MatTableModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    {
+      provide: LOCALE_ID,
+      useValue: 'pt'
+    },
+    {
+        provide:  DEFAULT_CURRENCY_CODE,
+        useValue: 'BRL'
+    }
   ],
   exports: [
     ProductManagementComponent,

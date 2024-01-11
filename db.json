@@ -37,66 +37,74 @@
     {
       "name": "Produto0",
       "price": 0,
-      "weight": 0,
+      "weight": "0",
       "description": "produto",
-      "storage": 0,
+      "storage": "0",
       "id": 1
     },
     {
       "name": "Produto1",
       "price": 1,
-      "weight": 1,
+      "weight": "1",
       "description": "produto",
-      "storage": 1,
+      "storage": "1",
       "id": 2
     },
     {
       "name": "Produto2",
       "price": 2,
-      "weight": 2,
+      "weight": "2",
       "description": "produto",
-      "storage": 2,
+      "storage": "2",
       "id": 3
     },
     {
-      "name": "",
+      "name": "teste1",
       "price": 0,
-      "weight": 0,
-      "description": "",
+      "weight": "--",
+      "description": "--",
       "storage": 0,
       "id": 4
     },
     {
-      "name": null,
-      "price": null,
-      "weight": null,
-      "description": null,
+      "name": "teste",
+      "price": 0,
+      "weight": "--",
+      "description": "--",
       "storage": 0,
-      "id": 5
-    },
-    {
-      "name": null,
-      "price": "",
-      "weight": null,
-      "description": null,
-      "storage": 0,
-      "id": 6
-    },
-    {
-      "name": "esfesf",
-      "price": "",
-      "weight": "112s1",
-      "description": null,
-      "storage": "1",
-      "id": 7
+      "id": 13
     },
     {
       "name": "teste",
-      "price": 0.34,
-      "weight": "213",
-      "description": "sefsef",
-      "storage": "23",
-      "id": 8
+      "price": 0,
+      "weight": "--",
+      "description": "--",
+      "storage": 0,
+      "id": 14
+    },
+    {
+      "name": "teste",
+      "price": 0,
+      "weight": "--",
+      "description": "--",
+      "storage": 0,
+      "id": 15
+    },
+    {
+      "name": "teste",
+      "price": 0,
+      "weight": "--",
+      "description": "--",
+      "storage": 0,
+      "id": 16
+    },
+    {
+      "name": "teste",
+      "price": 0,
+      "weight": "--",
+      "description": "--",
+      "storage": 0,
+      "id": 17
     }
   ]
 }

@@ -53,7 +53,7 @@ export class UserDescriptionComponent {
   }
 
   userPermition(): boolean {
-    if (this.userService.checkAccess() == Access.mod) {
+    if (this.userService.checkAccess() === Access.mod) {
       return true
     }
     return false
@@ -102,9 +102,10 @@ export class UserDescriptionComponent {
   submit() {
     this.submitted = true
 
-    if(this.formGroup.invalid) {
+    if(this.formGroup.invalid || this.userPermition()) {
       return false
     }
+
     if(this.cpfCheck() || this.emailCheck()) {
       return false
     }

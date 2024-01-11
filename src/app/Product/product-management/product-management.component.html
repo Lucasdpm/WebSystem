@@ -1,31 +1,31 @@
-<div class="generalBody">
-  <button routerLink="/home">Voltar</button>
-  <a routerLink="/productRegister"><button>Registrar novo produto</button></a>
-  <div class="tableContainer">
+<div class="generalBody vh-100" id="body">
+  <button class="back btn btn-primary mt-4 ms-4" routerLink="/home">Voltar</button>
+  <button class="back btn btn-primary mt-4 ms-4" routerLink="/productRegister">Registrar produto</button>
+  <div class="tableContainer bg-body-tertiary position-absolute top-50 start-50 translate-middle w-75">
     <table class="table" mat-table [dataSource]="productList" class="mat-elevation-z8">
       <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Nome </th>
+        <th mat-header-cell *matHeaderCellDef class="fw-bold text-center"> Nome </th>
         <td mat-cell *matCellDef="let element"> <a routerLink="/product/{{element.id}}"> {{element.name}} </a></td>
       </ng-container>
       
       <ng-container matColumnDef="price">
-        <th mat-header-cell *matHeaderCellDef> Preço </th>
-        <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+        <th mat-header-cell *matHeaderCellDef class="fw-bold text-center"> Preço </th>
+        <td mat-cell *matCellDef="let element" class="text-center"> {{element.price | currency:'BRL':true}} </td>
       </ng-container>
       
       <ng-container matColumnDef="weight">
-        <th mat-header-cell *matHeaderCellDef> Peso </th>
-        <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+        <th mat-header-cell *matHeaderCellDef class="fw-bold text-center"> Peso </th>
+        <td mat-cell *matCellDef="let element" class="text-center"> {{element.weight}} kg </td>
       </ng-container>
       
       <ng-container matColumnDef="description">
-        <th mat-header-cell *matHeaderCellDef> Descrição </th>
-        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+        <th mat-header-cell *matHeaderCellDef class="fw-bold text-center"> Descrição </th>
+        <td mat-cell *matCellDef="let element" class="text-center"> {{element.description}} </td>
       </ng-container>
       
       <ng-container matColumnDef="storage">
-        <th mat-header-cell *matHeaderCellDef> Estoque </th>
-        <td mat-cell *matCellDef="let element"> {{element.storage}} </td>
+        <th mat-header-cell *matHeaderCellDef class="fw-bold text-center"> Estoque </th>
+        <td mat-cell *matCellDef="let element" class="text-center"> {{element.storage}} </td>
       </ng-container>
       
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

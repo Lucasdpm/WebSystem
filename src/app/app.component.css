@@ -1,4 +1,4 @@
-html {
+/* html {
     display: flexbox;
     height: 100%;
     width: 100%;
@@ -13,4 +13,4 @@ html {
 router-outlet {
     display: flexbox;
     text-align: center;
-}
+} */

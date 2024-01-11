@@ -20,7 +20,7 @@ export class RegisterComponent {
     this.formGroup = formBuilder.group({
       name: [null, [Validators.required]],
       email: [null, [Validators.required, this.emailValidator]],
-      password: [null, [Validators.required, Validators.minLength(8), this.passwordValidator]],
+      password: ['', [Validators.required, Validators.minLength(8), this.passwordValidator]],
       cpf: [null, [Validators.required]],
       access: <Access>Access.user
     })

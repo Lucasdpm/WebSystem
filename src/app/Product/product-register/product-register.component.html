@@ -1,50 +1,9 @@
-<!-- <div class="registerBody">
-    <button class="back" routerLink="/productManagement">Voltar</button>
-    <form [formGroup]="formGroup" (ngSubmit)="registerProduct()">
-        <div class="container">
-            <h1 class="title">Registrar</h1>
-            <div class="rows">
-                <label class="elements" for="name">Nome</label>
-                <input class="elements" type="text" required formControlName="name">
-                <span class="validation" *ngIf="formGroup.get('name')?.invalid && formGroup.get('name')?.touched">
-                    Campo obrigatório
-                </span>
-                <span *ngIf="invalidName() && formGroup.get('name')?.invalid && formGroup.get('name')?.touched">
-                    Min. 5 caracteres
-                </span>
-            </div>
-            <div class="rows">
-                <label class="elements" for="price">Preço</label>
-                <input class="elements" type="text" required formControlName="price" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', align: 'left'}" >
-                <span class="validation" *ngIf="formGroup.get('price')?.invalid && formGroup.get('price')?.touched">
-                    Campo obrigatório
-                </span>
-            </div>
-            <div class="rows">
-                <label class="elements" for="weight">Peso</label>
-                <input class="elements" min="0" type="number" formControlName="weight">
-            </div>
-            <div class="rows">
-                <label class="elements" for="description">Descrição</label>
-                <input class="elements" type="text" formControlName="description">
-            </div>
-            <div class="rows">
-                <label class="elements" for="storage">Estoque</label>
-                <input class="elements" min="0" type="number" formControlName="storage">
-            </div>
-            <div class="buttons">
-                <button class="submit" [disabled]="!formGroup.valid || invalidName()">Registrar</button>
-            </div>
-        </div>
-    </form>
-</div> -->
-
-<div class="registerBody">
-    <button class="back btn btn-primary mt-4 ms-4" routerLink="/userManagement">Voltar</button>
+<div class="registerProductBody vh-100">
+    <button class="back btn btn-primary mt-4 ms-4" routerLink="/productManagement">Voltar</button>
     <form [formGroup]="formGroup" (ngSubmit)="registerProduct()">
         <div class="container bg-body-tertiary align-midle rounded position-absolute top-50 start-50 translate-middle w-50">
 
-            <legend class="mt-3">Registrar</legend>
+            <legend class="mt-3 mb-3">Registrar produto</legend>
 
             <div class="mb-3">
                 <label for="validationCustom01" class="form-label">Nome</label>
@@ -59,7 +18,7 @@
 
             <div class="mb-3">
                 <label for="validationCustom02" class="form-label">Preço (R$)</label>
-                <input type="text" class="form-control" id="validationCustom01" formControlName="price" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', align: 'left'}"
+                <input type="text" class="form-control" id="validationCustom02" formControlName="price" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', align: 'left'}"
                 [ngClass]="{
                     'is-invalid': (submitted || formGroup.controls['price'].touched) && formGroup.controls['price'].invalid,
                     'is-valid': (submitted || formGroup.controls['price'].touched) && formGroup.controls['price'].valid}">
@@ -70,19 +29,19 @@
 
             <div class="mb-3">
                 <label for="validationCustom03" class="form-label">Peso (Kg)</label>
-                <input #x type="weight" class="form-control" id="validationCustom01"formControlName="weight" placeholder="10,5"
+                <input #x type="weight" class="form-control" id="validationCustom03"formControlName="weight" placeholder="10,5"
                 [ngClass]="{'is-valid': (submitted || formGroup.controls['weight'].touched) && formGroup.controls['weight'].valid}">
             </div>
 
             <div class="mb-3">
                 <label for="validationCustom04" class="form-label">Descrição</label>
-                <input type="text" class="form-control" id="validationCustom01" formControlName="description" placeholder="exemplo de descrição"
+                <input type="text" class="form-control" id="validationCustom04" formControlName="description" placeholder="exemplo de descrição"
                 [ngClass]="{'is-valid': (submitted || formGroup.controls['description'].touched) && formGroup.controls['description'].valid}">
             </div>
             
             <div class="mb-3">
-                <label for="validationCustom04" class="form-label">Estoque</label>
-                <input type="text" class="form-control" id="validationCustom01" formControlName="storage" placeholder="2"
+                <label for="validationCustom05" class="form-label">Estoque</label>
+                <input type="text" class="form-control" id="validationCustom05" formControlName="storage" placeholder="2"
                 [ngClass]="{'is-valid': (submitted || formGroup.controls['storage'].touched) && formGroup.controls['storage'].valid}">
             </div>
 

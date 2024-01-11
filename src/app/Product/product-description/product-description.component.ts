@@ -16,6 +16,8 @@ export class ProductDescriptionComponent {
   productList: Product[] = []
   productId: number = Number.parseInt(this.router.url.slice(9))
   formGroup: FormGroup
+  submitted = false
+
   constructor(private productService: ProductService, private formBuilder:FormBuilder, private router: Router, private userService: UserService) {
     this.formGroup = formBuilder.group(<Product> {
       name: "",
@@ -68,9 +70,9 @@ export class ProductDescriptionComponent {
 
   userPermition(): boolean {
     if (this.userService.checkAccess() === Access.user) {
-      return false
+      return true
     }
-    return true
+    return false
   }
 
   delete() {
