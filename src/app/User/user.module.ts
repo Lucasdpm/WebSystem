@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { AppRoutingModule } from '../app-routing.module';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -12,20 +11,21 @@ import { UserService } from '../user.service';
 import { LoginComponent } from '../User/login/login.component';
 import { RegisterComponent } from '../User/register/register.component';
 import { UserManagementComponent } from '../User/user-management/user-management.component';
-import { UserDescriptionComponent } from '../User/user-description/user-description.component';
+import { UserFormComponent } from './user-form/user-form.component';
+import { UserRoutingModule } from './user-routing.module';
 
 @NgModule({
   declarations: [
     LoginComponent,
     RegisterComponent,
     UserManagementComponent,
-    UserDescriptionComponent
+    UserFormComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
     RouterModule,
-    AppRoutingModule,
+    UserRoutingModule,
     HttpClientModule,
     NgxMaskDirective,
     NgxMaskPipe,
@@ -41,7 +41,8 @@ import { UserDescriptionComponent } from '../User/user-description/user-descript
     LoginComponent,
     RegisterComponent,
     UserManagementComponent,
-    UserDescriptionComponent
+    UserFormComponent,
+    UserRoutingModule
   ]
 })
 export class UserModule { }

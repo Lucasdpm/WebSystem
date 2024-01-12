@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { UserService } from '../user.service';
-import { User } from '../user';
-import { ProductService } from '../product.service';
-import { Product } from '../product';
-import { Access } from '../access';
+import { UserService } from '../../user.service';
+import { User } from '../../user';
+import { ProductService } from '../../product.service';
+import { Product } from '../../product';
+import { Access } from '../../access';
 
 @Component({
   selector: 'app-home',

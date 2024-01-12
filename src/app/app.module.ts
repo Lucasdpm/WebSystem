@@ -9,6 +9,9 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { UserRoutingModule } from './User/user-routing.module';
+import { ProductRoutingModule } from './Product/product-routing.module';
+import { CoreRoutingModule } from './core/core-routing.module';
 
 
 @NgModule({
@@ -16,6 +19,7 @@ import { FormsModule } from '@angular/forms';
     AppComponent
   ],
   imports: [
+    AppRoutingModule,
     UserModule,
     ProductModule,
     CoreModule,
@@ -25,7 +29,10 @@ import { FormsModule } from '@angular/forms';
   ],
   providers: [
     provideClientHydration(),
-    AppRoutingModule
+    AppRoutingModule,
+    UserRoutingModule,
+    ProductRoutingModule,
+    CoreRoutingModule,
   ],
   bootstrap: [AppComponent]
 })

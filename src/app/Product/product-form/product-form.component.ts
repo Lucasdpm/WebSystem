@@ -7,11 +7,11 @@ import { UserService } from '../../user.service';
 import { Access } from '../../access';
 
 @Component({
-  selector: 'app-product-description',
-  templateUrl: './product-description.component.html',
-  styleUrl: './product-description.component.css'
+  selector: 'app-product-form',
+  templateUrl: './product-form.component.html',
+  styleUrl: './product-form.component.css'
 })
-export class ProductDescriptionComponent {
+export class ProductFormComponent {
 
   productList: Product[] = []
   productId: number = Number.parseInt(this.router.url.slice(9))

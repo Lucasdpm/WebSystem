@@ -1,7 +1,6 @@
 import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { AppRoutingModule } from '../app-routing.module';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -9,24 +8,25 @@ import { MatTableModule} from '@angular/material/table';
 import { CurrencyMaskModule } from "ng2-currency-mask";
 
 import { ProductManagementComponent } from '../Product/product-management/product-management.component';
-import { ProductDescriptionComponent } from '../Product/product-description/product-description.component';
+import { ProductFormComponent } from './product-form/product-form.component';
 import { ProductRegisterComponent } from '../Product/product-register/product-register.component';
 import localePt from '@angular/common/locales/pt';
 import {registerLocaleData} from '@angular/common';
+import { ProductRoutingModule } from './product-routing.module';
 
 registerLocaleData(localePt, 'pt');
 
 @NgModule({
   declarations: [
     ProductManagementComponent,
-    ProductDescriptionComponent,
+    ProductFormComponent,
     ProductRegisterComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
     RouterModule,
-    AppRoutingModule,
+    ProductRoutingModule,
     HttpClientModule,
     CurrencyMaskModule,
     ReactiveFormsModule,
@@ -45,7 +45,7 @@ registerLocaleData(localePt, 'pt');
   ],
   exports: [
     ProductManagementComponent,
-    ProductDescriptionComponent,
+    ProductFormComponent,
     ProductRegisterComponent
   ]
 })

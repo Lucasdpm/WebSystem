@@ -1,7 +1,7 @@
 <div class="tableContainer vh-100">
-  <button class="back btn btn-primary mt-4 ms-4" routerLink="/home">Voltar</button>
-  <div class="tableContainer  bg-body-tertiary position-absolute top-50 start-50 translate-middle w-75">
-    <div class="scroll bg-body-tertiary">
+  <button class="back btn btn-primary mt-4 ms-4" style="transform: translateY(79px);" routerLink="/home">Voltar</button>
+  <div class="tableContainer position-absolute top-50 start-50 translate-middle w-75">
+    <div class="scroll">
       <table class="table" mat-table [dataSource]="userList" class="mat-elevation-z8">
         <ng-container matColumnDef="name">
           <th mat-header-cell *matHeaderCellDef class="fw-bold text-center"> Nome </th>

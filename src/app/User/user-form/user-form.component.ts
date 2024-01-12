@@ -7,11 +7,11 @@ import { Access } from '../../access';
 
 
 @Component({
-  selector: 'app-user-description',
-  templateUrl: './user-description.component.html',
-  styleUrl: './user-description.component.css'
+  selector: 'app-user-form',
+  templateUrl: './user-form.component.html',
+  styleUrl: './user-form.component.css'
 })
-export class UserDescriptionComponent {
+export class UserFormComponent {
 
   userList: User[] = []
   userId: number = Number.parseInt(this.router.url.slice(6))

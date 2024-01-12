@@ -23,14 +23,6 @@
       "cpf": "20020020020",
       "access": "Administrador",
       "id": 3
-    },
-    {
-      "name": "teste",
-      "email": "teste@teste.com",
-      "password": "teste@123",
-      "cpf": "10020030040",
-      "access": "Moderador",
-      "id": 5
     }
   ],
   "products": [
@@ -57,62 +49,6 @@
       "description": "produto",
       "storage": "2",
       "id": 3
-    },
-    {
-      "name": "teste1",
-      "price": 0,
-      "weight": "--",
-      "description": "--",
-      "storage": 0,
-      "id": 4
-    },
-    {
-      "name": "teste",
-      "price": 0,
-      "weight": "--",
-      "description": "--",
-      "storage": 0,
-      "id": 14
-    },
-    {
-      "name": "teste",
-      "price": 0,
-      "weight": "--",
-      "description": "--",
-      "storage": 0,
-      "id": 15
-    },
-    {
-      "name": "teste",
-      "price": 0,
-      "weight": "--",
-      "description": "--",
-      "storage": 0,
-      "id": 16
-    },
-    {
-      "name": "teste1",
-      "price": 10,
-      "weight": "5,5",
-      "description": "teste",
-      "storage": "5",
-      "id": 17
-    },
-    {
-      "name": "teste2",
-      "price": 0,
-      "weight": "--",
-      "description": "--",
-      "storage": 0,
-      "id": 18
-    },
-    {
-      "name": "teste3",
-      "price": 0,
-      "weight": "--",
-      "description": "--",
-      "storage": 0,
-      "id": 19
     }
   ]
 }

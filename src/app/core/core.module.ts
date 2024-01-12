@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { HomeComponent } from '../home/home.component';
-import { FooterComponent } from '../template/footer/footer.component';
-import { HeaderComponent } from '../template/header/header.component';
+import { HomeComponent } from './home/home.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
 
 import { LocalStorageService } from '../local-storage.service';
 
-import { AppRoutingModule } from '../app-routing.module';
 import { RouterModule } from '@angular/router';
+import { CoreRoutingModule } from './core-routing.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     RouterModule,
-    AppRoutingModule
+    CoreRoutingModule
   ],
   providers: [
     LocalStorageService
