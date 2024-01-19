@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit{
     })
   }
 
-  async logIn() {
+  logIn() {
     let user: User = <User>this.formGroup.value 
     
     for (let i = 0; i < this.userList.length; i++) {

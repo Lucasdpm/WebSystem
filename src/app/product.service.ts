@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from './product';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  url = 'http://localhost:3000/products'
+  url = `${environment.MainUrl}/product`
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -32,7 +33,7 @@ export class ProductService {
 
   deleteProduct(id: number): Observable<any> {
     const url = `${this.url}/${id}`
-    return this.httpClient.delete(url, this.httpOptions)
+    return this.httpClient.delete(url, { responseType: 'text' })
   }
 
   updateProduct(id: number, updateProduct: Product): Observable<any> {

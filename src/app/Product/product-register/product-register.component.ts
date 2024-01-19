@@ -12,7 +12,6 @@ import { UserService } from '../../user.service';
 })
 export class ProductRegisterComponent {
   
-  productList : Product[] = []
   formGroup: FormGroup
   submitted = false
 
@@ -24,16 +23,12 @@ export class ProductRegisterComponent {
       description: '',
       storage: ['', [this.storageValidator]]
     })
-    
-    this.productService.getAllProducts().subscribe(data => {
-      this.productList = data
-    })
   }
 
   weightValidator(control: AbstractControl) {
-    const weightRegex = /^\d*\,?\d+(?:[Ee][\+\-]?\d+)?$/
+    const weightRegex = /^\d*\.?\d+(?:[Ee][\+\-]?\d+)?$/
     const weight = control.value
-    
+
     const valid = weightRegex.test(weight) || !weight.length
     return valid ? null : {weightValidator: true}
   }
@@ -46,11 +41,11 @@ export class ProductRegisterComponent {
     return valid ? null : {storageValidator: true}
   }
   
-  registerProduct(): boolean {
+  registerProduct() {
     this.submitted = true
 
     if (this.formGroup.invalid) {
-      return false
+      return
     }
 
     if (this.formGroup.value.price === null || this.formGroup.value.price === '') {
@@ -61,13 +56,13 @@ export class ProductRegisterComponent {
 
     if (!this.formGroup.value.weight.length) {
       this.formGroup.patchValue({
-        weight: '--'
+        weight: 0
       })
     }
 
     if (!this.formGroup.value.description.length) {
       this.formGroup.patchValue({
-        description: '--'
+        description: ''
       })
     }
 
@@ -77,9 +72,7 @@ export class ProductRegisterComponent {
       })
     }
     this.productService.addProduct(this.formGroup.value).subscribe(product => {
-      this.productList.push(product)
+      this.router.navigate(['/productManagement'])
     })
-    this.router.navigate(['/productManagement'])
-    return true;
   }
 }

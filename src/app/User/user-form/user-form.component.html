@@ -46,16 +46,16 @@
                 [ngClass]="{
                     'is-invalid': (submitted || formGroup.controls['access'].touched) && (formGroup.controls['access'].invalid),
                     'is-valid': formGroup.controls['access'].valid }">
-                    <option [disabled]="userPermition()">Usuário</option>
-                    <option [disabled]="userPermition()">Moderador</option>
-                    <option [disabled]="userPermition()">Administrador</option>
+                    <option value="0" [disabled]="userPermition()">Usuário</option>
+                    <option value="1" [disabled]="userPermition()">Moderador</option>
+                    <option value="2" [disabled]="userPermition()">Administrador</option>
                 </select>
             </div>
             
             <div class="container text-center mt-4 mb-3">
                 <div class="row gap-3">
                 <button type="submit" class="btn btn-primary col" [disabled]="userPermition()">Salvar</button>
-                <button class="delete" class="btn btn-primary col" [disabled]="userPermition()" (click)="delete()">Deletar</button>
+                <button type="button" class="delete" class="btn btn-primary col" [disabled]="userPermition()" (click)="delete()">Deletar</button>
             </div>
             </div>
         </div>

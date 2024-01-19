@@ -81,8 +81,8 @@ export class RegisterComponent {
 
     this.userService.addUser(this.formGroup.value).subscribe(user => {
        this.userList.push(user)
+       this.router.navigate(['/login'])
     })
-    this.router.navigate(['/login'])
     return true;
   }
 

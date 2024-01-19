@@ -12,11 +12,15 @@ import { FormsModule } from '@angular/forms';
 import { UserRoutingModule } from './User/user-routing.module';
 import { ProductRoutingModule } from './Product/product-routing.module';
 import { CoreRoutingModule } from './core/core-routing.module';
+import { UserAccessNamePipe } from './user-access-name.pipe';
+import { WeightKilogramPipe } from './weight-kilogram.pipe';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UserAccessNamePipe,
+    WeightKilogramPipe
   ],
   imports: [
     AppRoutingModule,

@@ -18,10 +18,10 @@
 
             <div class="mb-3">
                 <label for="validationCustom02" class="form-label">Preço (R$)</label>
-                <input type="text" class="form-control" id="validationCustom02" formControlName="price" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', align: 'left'}"
+                <input type="text" class="form-control" id="validationCustom02" formControlName="price" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', allowNegative: false, align: 'left'}"
                 [ngClass]="{
                     'is-invalid': (submitted || formGroup.controls['price'].touched) && formGroup.controls['price'].invalid,
-                    'is-valid': formGroup.controls['price'].valid}">
+                    'is-valid': (submitted || formGroup.controls['price'].touched) && formGroup.controls['price'].valid}">
                 <div class="invalid-feedback">
                     Campo preço é obrigatório
                 </div>
@@ -30,25 +30,25 @@
             <div class="mb-3">
                 <label for="validationCustom03" class="form-label">Peso (Kg)</label>
                 <input #x type="weight" class="form-control" id="validationCustom03"formControlName="weight" placeholder="10,5"
-                [ngClass]="{'is-valid': formGroup.controls['weight'].valid}">
+                [ngClass]="{'is-valid': (submitted || formGroup.controls['weight'].touched) && formGroup.controls['weight'].valid}">
             </div>
 
             <div class="mb-3">
                 <label for="validationCustom04" class="form-label">Descrição</label>
                 <input type="text" class="form-control" id="validationCustom04" formControlName="description" placeholder="exemplo de descrição"
-                [ngClass]="{'is-valid': formGroup.controls['description'].valid}">
+                [ngClass]="{'is-valid': (submitted || formGroup.controls['description'].touched) && formGroup.controls['description'].valid}">
             </div>
             
             <div class="mb-3">
                 <label for="validationCustom05" class="form-label">Estoque</label>
                 <input type="text" class="form-control" id="validationCustom05" formControlName="storage" placeholder="2"
-                [ngClass]="{'is-valid': formGroup.controls['storage'].valid}">
+                [ngClass]="{'is-valid': (submitted || formGroup.controls['storage'].touched) && formGroup.controls['storage'].valid}">
             </div>
             
             <div class="container text-center mt-4 mb-3">
                 <div class="row gap-3">
                 <button type="submit" class="btn btn-primary col">Salvar</button>
-                <button class="delete" class="btn btn-primary col" [disabled]="userPermition()" (click)="delete()">Deletar</button>
+                <button type="button" class="delete" class="btn btn-primary col" [disabled]="userPermition()" (click)="delete()">Deletar</button>
             </div>
             </div>
         </div>

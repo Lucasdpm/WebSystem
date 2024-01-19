@@ -2,7 +2,6 @@
     <button class="back btn btn-primary mt-4 ms-4" style="transform: translateY(79px);" routerLink="/productManagement">Voltar</button>
     <form [formGroup]="formGroup" (ngSubmit)="registerProduct()">
         <div class="container bg-body-tertiary align-midle rounded position-absolute top-50 start-50 translate-middle w-50">
-
             <legend class="mt-3 mb-3">Registrar produto</legend>
 
             <div class="mb-3">
@@ -18,7 +17,7 @@
 
             <div class="mb-3">
                 <label for="validationCustom02" class="form-label">Preço (R$)</label>
-                <input type="text" class="form-control" id="validationCustom02" formControlName="price" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', align: 'left'}"
+                <input type="text" class="form-control" id="validationCustom02" formControlName="price" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', allowNegative: false , align: 'left'}"
                 [ngClass]="{
                     'is-invalid': (submitted || formGroup.controls['price'].touched) && formGroup.controls['price'].invalid,
                     'is-valid': (submitted || formGroup.controls['price'].touched) && formGroup.controls['price'].valid}">
