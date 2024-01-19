@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProductService } from '../../product.service';
-import { Product } from '../../product';
 import { UserService } from '../../user.service';
 import { Access } from '../../access';
 
@@ -93,7 +92,7 @@ export class ProductFormComponent {
         storage: 0
       })
     }
-    this.productService.updateProduct(this.productId, this.formGroup.value).subscribe(product => {
+    this.productService.updateProduct(this.productId, this.formGroup.value).subscribe(() => {
       this.router.navigate(['/productManagement'])
     })
   }
@@ -106,7 +105,7 @@ export class ProductFormComponent {
   }
 
   delete() {
-    this.productService.deleteProduct(this.productId).subscribe(product => {
+    this.productService.deleteProduct(this.productId).subscribe(() => {
       this.router.navigate(['/productManagement'])
     })
   }

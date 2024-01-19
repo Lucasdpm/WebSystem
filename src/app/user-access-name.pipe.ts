@@ -5,8 +5,12 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class UserAccessNamePipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+  transform(value:number): string {
+    switch(value) {
+      case 0: return 'Usuário'
+      case 1: return 'Moderador'
+      case 2: return 'Administrador'
+      default: return 'INVÁLIDO'
+    }
   }
-
 }

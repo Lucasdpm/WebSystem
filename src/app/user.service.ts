@@ -67,7 +67,7 @@ export class UserService {
 
   deleteUser(id: number): Observable<any> {
     const url = `${this.url}/${id}`
-    return this.httpClient.delete(url, {responseType: 'text'})
+    return this.httpClient.delete(url, { responseType: 'text'})
   }
 
   updateUser(id: number, updateUser: User): Observable<any> {

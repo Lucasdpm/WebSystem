@@ -13,6 +13,7 @@ import { ProductRegisterComponent } from '../Product/product-register/product-re
 import localePt from '@angular/common/locales/pt';
 import {registerLocaleData} from '@angular/common';
 import { ProductRoutingModule } from './product-routing.module';
+import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
 
 registerLocaleData(localePt, 'pt');
 
@@ -28,6 +29,8 @@ registerLocaleData(localePt, 'pt');
     RouterModule,
     ProductRoutingModule,
     HttpClientModule,
+    NgxMaskDirective,
+    NgxMaskPipe,
     CurrencyMaskModule,
     ReactiveFormsModule,
     MatTableModule

@@ -13,13 +13,15 @@ import { RegisterComponent } from '../User/register/register.component';
 import { UserManagementComponent } from '../User/user-management/user-management.component';
 import { UserFormComponent } from './user-form/user-form.component';
 import { UserRoutingModule } from './user-routing.module';
+import { UserAccessNamePipe } from '../user-access-name.pipe';
 
 @NgModule({
   declarations: [
     LoginComponent,
     RegisterComponent,
     UserManagementComponent,
-    UserFormComponent
+    UserFormComponent,
+    UserAccessNamePipe
   ],
   imports: [
     CommonModule,

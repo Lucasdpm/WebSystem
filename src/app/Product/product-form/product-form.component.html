@@ -18,7 +18,7 @@
 
             <div class="mb-3">
                 <label for="validationCustom02" class="form-label">Preço (R$)</label>
-                <input type="text" class="form-control" id="validationCustom02" formControlName="price" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', allowNegative: false, align: 'left'}"
+                <input type="text" class="form-control" id="validationCustom02" formControlName="price" placeholder="R$0,00" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', allowNegative: false, align: 'left'}"
                 [ngClass]="{
                     'is-invalid': (submitted || formGroup.controls['price'].touched) && formGroup.controls['price'].invalid,
                     'is-valid': (submitted || formGroup.controls['price'].touched) && formGroup.controls['price'].valid}">
@@ -29,7 +29,7 @@
 
             <div class="mb-3">
                 <label for="validationCustom03" class="form-label">Peso (Kg)</label>
-                <input #x type="weight" class="form-control" id="validationCustom03"formControlName="weight" placeholder="10,5"
+                <input #x type="weight" class="form-control" id="validationCustom03"formControlName="weight" placeholder="1,225 Kg"
                 [ngClass]="{'is-valid': (submitted || formGroup.controls['weight'].touched) && formGroup.controls['weight'].valid}">
             </div>
 

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { UserService } from '../../user.service';
 import { User } from '../../user';
 import { Router } from '@angular/router';
+import { UserAccessNamePipe } from '../../user-access-name.pipe';
 
 @Component({
   selector: 'app-user-management',

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ProductService } from '../../product.service';
-import { Product } from '../../product';
 import { Router } from '@angular/router';
 import { UserService } from '../../user.service';
 
